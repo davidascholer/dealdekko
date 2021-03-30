@@ -2,7 +2,7 @@
 const axios = require('axios');
 
 //we need to set the origin of the url to direct the files
-const origin = "http://localhost:3000";
+const origin = "https://test-database-managment.herokuapp.com/";
 
 exports.homeRoutes=(req,res)=>{
 
