@@ -24,6 +24,7 @@ exports.add_user=(req,res)=>{
 }
 
 exports.update_user=(req,res)=>{
+    console.log('works here');
 
     // res.render('update_user');
     axios.get(origin+'/api/users',{params: {id : req.query.id}})

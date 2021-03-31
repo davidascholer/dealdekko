@@ -56,12 +56,13 @@ exports.find = (req, res) => {
 
 //update a new identified user by user id
 exports.update = (req, res) => {
-
+    
     if (!req.body) {
         return res.status(400).send({ message: "Data to update cannot be empty" });
     }
 
     const id = req.params.id;
+    console.log(id);
     Userdb.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
         .then(data => {
             if (!data) {
@@ -77,19 +78,24 @@ exports.update = (req, res) => {
 //delete a user with specified use id in the request 
 exports.delete = (req, res) => {
     const id = req.params.id;
-
-    Userdb.findByIdAndDelete(id)
-    .then(data=>{
+    console.log("delete method 1");
+    Userdb.findByIdAndRemove({_id:id})
+    .then(function(data){
+        console.log("delete method 2");
         if(!data){
+            console.log("delete method 2 not data");
             res.status(404).send({message: `Cannot delete with id ${id}. Please check the id.`})
         }else{
+            console.log("delete method 2 data");
             res.send({
                 message: "User was deleted successfully!"
             })
-        }
+            // res.send({type:'DELETE'})
+        } 
     }).catch(err=>{
+        console.log("delete method 3");
         res.status(500).send({
             message: "Could not delete user with id=" + id
         });
-    });
+    }); 
 };

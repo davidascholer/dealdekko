@@ -24,8 +24,8 @@ route.get('/update-user',services.update_user);
 route.post('/api/users',controller.create);
 route.get('/api/users',controller.find);
 //Currently not working locally
-route.put('/api/user/:id',controller.update);
+route.put('/api/users/:id',controller.update);
 //Currently not working locally
-route.delete('/api/user/:id',controller.delete);
+route.delete('/api/users/:id',controller.delete);
 
 module.exports = route;
