@@ -1,31 +1,55 @@
-    <%for(var i = 0; i<users.length;i++) {%>
-        <tr>
-    <td><%=i + 1 %></td>
-    <td><%= users[i].name %></td>
-    <td><%= users[i].email %></td>
-    <td><%= users[i].Gender %></td>
-    <td><%= users[i].Status %></td>
-    <td>
-        <a href='/update-user?id=<%= users[i]._id%>' class='btn border-shadow update'>
-            <span class='text-gradient'><i class='fas fa-pencil-alt'></i></span>
-        </a>
-        <a class='btn border-shadow delete' data-id=<%=users[i]._id%>>
-            <span class='text-gradient'><i class='fas fa-times'></i></span>
-        </a>
-    </td>
-</tr>
+<%for(let deal of dealData) {%>
+<div class="deals-container">
+
+        <div class="deal-content">
+            <div class='overlay-row'>
+                <img class="content-image" src='/assets/img/test.png' alt="deal image">
+                <div class="title-content">
+                    <p class="title-text">
+                        black blackblah blach blach blah blah end
+                    </p>
+                </div>
+            </div>
+            <div class='overlay-row'>
+                <div class="price-likes-container">
+                    <div class="price-container">
+                        <span class="money-one">
+                            <money>
+                                $20
+                            </money>
+                        </span>
+                        <span class="money-two">
+                            <money><s>
+                                    $40
+                                </s></money>
+                        </span>
+                    </div>
+                    <span class="likes-container">
+                        <img src="/assets/img/icons/thumb-up.svg" alt="likes">
+                        <label>
+                            66
+                        </label>
+                    </span>
+                </div>
+                <span class="dead-container">
+                    <img src="/assets/img/icons/dead_icon.svg" alt="likes">
+                    <label>
+                        Report this deal as dead.
+                    </label>
+                </span>
+
+
+            </div>
+            <div class='overlay-row'>
+                <a href="http://google.com" target="_blank" class="link">Go To This Deal</a>
+            </div>
+            <div class='overlay-row'>
+                <p class="details">here are more details blah blah blah here are more details blah blah blah
+                </p>
+            </div>
+
+
+        </div>
     <% } %>
 
-    <!-- <td>1</td>
-    <td>Username</td>
-    <td>example@gmail.com</td>
-    <td>Male</td>
-    <td>Active</td>
-    <td>
-        <a href='/update-user' class='btn border-shadow update'>
-            <span class='text-gradient'><i class='fas fa-pencil-alt'></i></span>
-        </a>
-        <a class='btn border-shadow delete'>
-            <span class='text-gradient'><i class='fas fa-times'></i></span>
-        </a>
-    </td> -->
+    

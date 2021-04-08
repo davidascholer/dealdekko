@@ -1,44 +1,40 @@
-$("#add_user").submit(function(event){
-    alert("Data Inserted Successfully!");
-})
+(function(){
+    //Sets a random plant every time the user refreshes the page. For fun.
+    const NUMBER_OF_PLANTS = 6;
+    const plantHeaderImage = document.getElementById('header_plant');
+    let randomPlant = Math.floor(Math.ceil(Math.random() * NUMBER_OF_PLANTS));
+    plantHeaderImage.src = '/img/sucs/succ_'+randomPlant+'.svg';
 
-$("#update_user").submit(function(event){
-    event.preventDefault();
+    //Set up the overlay so it goes away when you click on the outside of it.
+    const overlay = document.getElementById('overlay');
+    const overlayContent = document.getElementById('overlay-content');
 
-    var unindexed_array = $(this).serializeArray();
-    var data = {};
+    overlay.addEventListener('click',function(){
+        overlayContent.innerHTML='';
+        overlay.style.visibility = 'hidden';
+    })
+    overlayContent.addEventListener('click',function(event){
+        event.stopPropagation();
+    })
 
-    $.map(unindexed_array,function(n,i){
-        data[n['name']] = n['value'];
-    });
+    
 
-    var request = {
-        "url": window.location.origin+`/api/users/${data.id}`,
-        "method" : "PUT",
-        "data":data
+    const dealViews = document.getElementsByClassName('deal-content');
+    for(let dealView of dealViews){
+        dealView.addEventListener('click',function(){
+            
+            let htmlContent = this.outerHTML;
+
+            overlay.style.visibility = 'visible';
+            overlayContent.innerHTML = htmlContent;
+
+            let details = this.getElementsByClassName('details');
+            let link = this.getElementsByClassName('link');
+
+        });
     }
 
-    $.ajax(request).done(function(response){
-        alert("Data Updated Successfully!");
-    })
-})
 
-if(window.location.pathname == "/"){
 
-    $ondelete = $(".table tbody td a.delete");
-    $ondelete.click(function(){
-        var id = $(this).attr("data-id");
 
-        var request = {
-            "url": window.location.origin+`/api/users/${id}`,
-            "method" : "DELETE"
-                }
-
-                if(confirm("Do you really want to delete this record?")){
-                    $.ajax(request).done(function(response){
-                        alert("Data Deleted Successfully!");
-                        location.reload();
-                    })
-                }
-    })
-}
+})()
