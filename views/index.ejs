@@ -1,4 +1,13 @@
-
+<!--include head-->
+<%-include('include/_head')%>
+<link href="/css/styles.css" rel="stylesheet" type="text/css" />
+<link href="/css/index.css" rel="stylesheet" type="text/css" />
+</head>
+<!--/include head--> 
+<body>
+    <div id="overlay" class="hidden">
+        <div id="overlay-content"></div>
+    </div>
 <!--include header-->
 <%-include('include/_header')%>
 <!--/include header-->   
@@ -6,12 +15,16 @@
     <aside class="banner margined"></aside>
     <main class="margined">
             <h1>Daily Dekko</h1>
-            <div class="deal-container">
+            <div class="deals-container">
  
-                <%-include('include/_show')%>
+                <%-include('include/_show-index-deal')%>
 
             </div>
     </main>
-<!--include footer-->
-<%-include('include/_footer')%> 
-<!--/include header-->
+    <!--include footer-->
+    <%-include('include/_footer')%> 
+    <!--/include footer-->
+        <!-- script goes here -->
+    <script src="/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+.deals-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: 350px;
+  grid-column-gap: 75px;
+  grid-row-gap: 50px;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.deal-content {
+  max-height: 350px;
+}
+.deal-content * + * {
+  text-align: initial;
+}
+.deal-content .content-image {
+  width: 180px;
+  height: 180px;
+}
+.deal-content .price-likes-container {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+.deal-content .price-likes-container .price-container {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  overflow-x: scroll;
+}
+.deal-content .price-likes-container .price-container .money-one {
+  font-size: 1.5em;
+}
+.deal-content .price-likes-container .price-container .money-two {
+  font-size: 1em;
+  margin-left: 5px;
+  color: #a62091;
+}
+.deal-content .price-likes-container .likes-container {
+  display: flex;
+  align-items: center;
+  margin: 5px 1px;
+}
+.deal-content .price-likes-container .likes-container img {
+  width: 1.5vw;
+}
+.deal-content .price-likes-container .likes-container label {
+  margin-left: 5px;
+  font-size: 1 em;
+}
+.deal-content .title-content {
+  overflow: hidden;
+  max-height: 130px;
+}
+.deal-content .title-content .hidden {
+  visibility: hidden;
+}
+.deal-content .title-content .title-text {
+  max-height: 105px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.deal-content .details,
+.deal-content .link,
+.deal-content .dead-container {
+  visibility: hidden;
+  display: none;
+}
+
+#overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  padding: 5vh 20vw;
+  background-color: rgba(0, 0, 0, 0.95);
+  visibility: hidden;
+}
+#overlay #overlay-content {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+#overlay #overlay-content .overlay-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+}
+#overlay #overlay-content .overlay-row > * {
+  padding: 1vw;
+}
+#overlay #overlay-content .content-image {
+  width: 180px;
+  height: 180px;
+  align-self: center;
+}
+#overlay #overlay-content .title-content {
+  width: 50%;
+  flex-grow: 2;
+}
+#overlay #overlay-content .price-likes-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+}
+#overlay #overlay-content .price-likes-container .price-container {
+  display: flex;
+  align-items: flex-start;
+}
+#overlay #overlay-content .price-likes-container .price-container .money-one {
+  font-size: 1.5em;
+}
+#overlay #overlay-content .price-likes-container .price-container .money-two {
+  font-size: 1em;
+  color: #a62091;
+}
+#overlay #overlay-content .price-likes-container .likes-container {
+  display: flex;
+  align-items: center;
+}
+#overlay #overlay-content .price-likes-container .likes-container img {
+  width: 3vw;
+}
+#overlay #overlay-content .price-likes-container .likes-container label {
+  font-size: 1 em;
+  margin-left: 5px;
+}
+#overlay #overlay-content .price-likes-container .likes-container label::after {
+  content: " likes";
+}
+#overlay #overlay-content .details,
+#overlay #overlay-content .link,
+#overlay #overlay-content .dead-container {
+  display: inherit;
+  visibility: visible;
+}
+#overlay #overlay-content .dead-container {
+  align-self: flex-start;
+  margin-right: 3vw;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#overlay #overlay-content .dead-container img {
+  width: 2vw;
+  margin: auto;
+}
+#overlay #overlay-content .dead-container label {
+  width: 100%;
+  font-size: 0.5em;
+  text-align: center;
+}
+#overlay #overlay-content .link {
+  flex-grow: 1;
+  margin: 2vw;
+  justify-content: center;
+  box-shadow: 0px 10px 14px -7px #276873;
+  background: linear-gradient(to bottom, #40e0d0 5%, #00a89a 100%);
+  background-color: #40e0d0;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  text-shadow: 0px 1px 0px #3d768a;
+  text-align: center;
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -8,7 +8,7 @@
  
  const grabDbData = async () => {
 
-     const queryString = 'SELECT * from deals ORDER BY date DESC LIMIT 22';
+     const queryString = 'SELECT * from deals ORDER BY date DESC LIMIT 30';
     
      await dbConnect.connect();
      let data = await dbConnect.query(queryString);
@@ -30,8 +30,26 @@
     await dbConnect.connect();
     let data = await dbConnect.query(queryString);
     dbConnect.disconnect();
-    return data;
+    return [cat,data];
+ };
+
+ const parseSearchData = async searchString => {
+
+    //decode the utf formatted string
+    let decodedSearchString = decodeURIComponent(searchString);
+    let querySearchString = '';
+    //create a sql ready string to find the search constraints, otherwise it will send an empty string returning an empty data set
+    if(searchString!=='empty'){
+        querySearchString = '%'+decodedSearchString+'%';
+    }
+
+    const queryString = `SELECT * from deals WHERE details LIKE '${querySearchString}' ORDER BY date DESC LIMIT 50`;
+    await dbConnect.connect();
+    let data = await dbConnect.query(queryString);
+    dbConnect.disconnect();
+    return [decodedSearchString,data];
  };
 
  module.exports.grabDbData = grabDbData;
  module.exports.parseCategoryData = parseCategoryData;
+ module.exports.parseSearchData = parseSearchData;

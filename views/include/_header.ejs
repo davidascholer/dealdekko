@@ -1,28 +1,40 @@
-
-<!--include header-->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DealDekko</title>
-    <link href="/css/styles.css" rel="stylesheet" type="text/css" />
-</head>
-
 <body>
-    <div id="overlay" class="hidden">
-        <div id="overlay-content"></div>
-    </div>
-    <header id="header">
+    <header>
         <div class="margined">
             <div class="header-top">
                 <div class="header-top-left">
-                    <img src="/img/sucs/succ_logo.svg">
-                    <h1>DealDekko</h1>
+                    <a href="/"><img src="/img/sucs/succ_logo.svg"></a>
+                        <a href="/"><h1>DealDekko</h1>
+                    </a>
                 </div>
-                <div class="header-top-middle"></div>
+                <div class="header-top-middle">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+                        <symbol xmlns="http://www.w3.org/2000/svg" id="sbx-icon-search-6" viewBox="0 0 40 40">
+                          <path d="M28.295 32.517c-2.93 2.086-6.51 3.312-10.38 3.312C8.02 35.83 0 27.81 0 17.914 0 8.02 8.02 0 17.915 0 27.81 0 35.83 8.02 35.83 17.915c0 3.87-1.227 7.45-3.313 10.38l6.61 6.61c1.166 1.165 1.163 3.057 0 4.22-1.167 1.167-3.057 1.167-4.226-.002l-6.605-6.606zm-10.38.326c8.245 0 14.928-6.683 14.928-14.928 0-8.245-6.683-14.93-14.928-14.93-8.245 0-14.93 6.685-14.93 14.93 0 8.245 6.685 14.928 14.93 14.928zm0-26.573c-6.43 0-11.645 5.214-11.645 11.645 0 .494.4.895.896.895.495 0 .896-.4.896-.895 0-5.442 4.41-9.853 9.853-9.853.494 0 .895-.4.895-.896 0-.495-.4-.896-.895-.896z"
+                          fill-rule="evenodd" />
+                        </symbol>
+                        <symbol xmlns="http://www.w3.org/2000/svg" id="sbx-icon-clear-5" viewBox="0 0 20 20">
+                          <path d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10zm1.35-10.123l3.567 3.568-1.225 1.226-3.57-3.568-3.567 3.57-1.226-1.227 3.568-3.568-3.57-3.57 1.227-1.224 3.568 3.568 3.57-3.567 1.224 1.225-3.568 3.57zM10 18.272c4.568 0 8.272-3.704 8.272-8.272S14.568 1.728 10 1.728 1.728 5.432 1.728 10 5.432 18.272 10 18.272z"
+                          fill-rule="evenodd" />
+                        </symbol>
+                      </svg>
+                      
+                      <form id="searchbox" novalidate="novalidate" onsubmit="return false;" class="searchbox sbx-custom">
+                        <div role="search" class="sbx-custom__wrapper">
+                          <input type="search" name="search" placeholder="search" autocomplete="off" required="required" class="sbx-custom__input">
+                          <button id="searchbutton" type="submit" title="Submit your search query." class="sbx-custom__submit">
+                            <svg role="img" aria-label="Search">
+                              <use xlink:href="#sbx-icon-search-6"></use>
+                            </svg>
+                          </button>
+                          <button type="reset" title="Clear the search query." class="sbx-custom__reset">
+                            <svg role="img" aria-label="Reset">
+                              <use xlink:href="#sbx-icon-clear-5"></use>
+                            </svg>
+                          </button>
+                        </div>
+                      </form>
+                </div>
                 <div class="header-top-right">
                     <img id='header_plant' src="/img/sucs/succ_2.svg">
                     <a href="https://youtube.com" target="_blank"><img src="/img/icons/youtube.svg"></a>
@@ -33,10 +45,10 @@
             </div>
             <hr>
         <div class="categories">
-            <a href="./category">All Categories</a>
+            <!-- <a href="./category">All Categories</a> -->
             <a href="./category?cat=beauty.makeup">Beauty and Makeup</a>
             <!-- <a href="./category?cat=makeup">Makeup</a> -->
-            <a href="./category?cat=videogame">Video Games</a>
+            <a href="./category?cat=videogames">Video Games</a>
             <a href="./category?cat=clothing">Clothing</a>
             <a href="./category?cat=electronics.movies.computers.tablets.phones.audio">Electronics</a>
             <a href="./category?cat=health.sports">Health and Fitness</a>
@@ -51,8 +63,9 @@
             <a href="./category?cat=home">Home</a>
             <a href="./category?cat=movies">Movies</a>
             <a href="./category?cat=travel">Travel</a>
-            <a href="./category?cat=games">Games</a>
             <a href="./category?cat=free">Free Stuff</a>
+            <a href="./category?cat=boardgames">Board Games</a>
+            <a href="./category?cat=cardgames">Card Games</a>
             <a href="./category?cat=sports">Sports</a>
             <a href="./category?cat=books">Books</a>
             <a href="./category?cat=music">Music</a>

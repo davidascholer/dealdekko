@@ -1,4 +1,24 @@
-<p>stuff exported is</p>
-<%for(let deal of dealData) {%>
-<p><%= deal.price%></p>
-<% } %>
+<!--include head-->
+<%-include('include/_head')%>
+<link href="/css/category.css" rel="stylesheet" type="text/css" />
+</head>
+<!--/include head--> 
+<body>
+<!--include header-->
+<%-include('include/_header')%>
+<!--/include header-->   
+    <main class="margined">
+            <h1><%= String(category).replace(/\./g, ' ').toUpperCase() %></h1>
+            <div class="deals-container">
+ 
+                <%-include('include/_show-category-deal')%>
+
+            </div>
+    </main>
+    <!--include footer-->
+    <%-include('include/_footer')%> 
+    <!--/include footer-->
+    <!-- script goes here -->
+    <script src="/js/categories.js"></script>
+</body>
+</html>

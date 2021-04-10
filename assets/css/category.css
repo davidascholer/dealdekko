@@ -1,0 +1,83 @@
+.deals-container {
+  margin: 50px 0;
+}
+
+.deal-content {
+  display: grid;
+  max-width: 2000px;
+  grid-template-columns: minmax(200px, 15vw) minmax(300px, 45vw) minmax(75px, 15vw) minmax(75px, 7.5vw) minmax(75px, 7.5vw);
+  grid-template-rows: 75px 125px;
+  grid-template-areas: "image title pricelikes dead date" "image details details details details";
+  grid-column-gap: 1vw;
+}
+.deal-content .content-image {
+  width: 200px;
+  height: 200px;
+  grid-area: image;
+  text-align: center;
+}
+.deal-content .title-content {
+  overflow: hidden;
+  max-height: 130px;
+  grid-area: title;
+}
+.deal-content .title-content .title-text {
+  max-height: 105px;
+  overflow: scroll;
+  margin-bottom: 0;
+}
+.deal-content .pricelikes-container {
+  grid-area: pricelikes;
+}
+.deal-content .pricelikes-container .price-container {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+.deal-content .pricelikes-container .price-container .money-one {
+  font-size: 1.5em;
+}
+.deal-content .pricelikes-container .price-container .money-two {
+  font-size: 1em;
+  margin-left: 5px;
+  color: #a62091;
+}
+.deal-content .pricelikes-container .likes-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+.deal-content .pricelikes-container .likes-container img {
+  width: 1.5vw;
+}
+.deal-content .pricelikes-container .likes-container label {
+  margin-left: 5px;
+  font-size: 1 em;
+}
+.deal-content .date-contaner {
+  grid-area: date;
+  width: 75px;
+  text-align: center;
+  font-size: 0.85em;
+}
+.deal-content .dead-container {
+  grid-area: dead;
+  width: 75px;
+  text-align: center;
+  font-size: 0.7em;
+}
+.deal-content .dead-container img {
+  width: 20px;
+  display: block;
+  margin-left: 25px;
+}
+.deal-content .link {
+  visibility: hidden;
+}
+.deal-content .details {
+  grid-area: details;
+  overflow: scroll;
+  height: 100%;
+}
+
+/*# sourceMappingURL=category.css.map */

@@ -1,0 +1,152 @@
+@use 'colors' as colors;
+
+//_show
+.deals-container {
+    margin:50px 0;
+}
+
+.deal-content {
+    display: grid;
+    max-width:2000px;
+    grid-template-columns: minmax(200px,15vw) minmax(300px,45vw) minmax(75px,15vw) minmax(75px,7.5vw) minmax(75px,7.5vw);
+    grid-template-rows: 75px 125px;
+    grid-template-areas:
+        "image title pricelikes dead date"
+        "image details details details details";
+    // grid-row-gap: 5px;
+    grid-column-gap: 1vw;
+
+    .content-image {
+        width: 200px;
+        height: 200px;
+        grid-area: image;
+        text-align: center;
+    }
+
+    .title-content {
+        overflow: hidden;
+        max-height: 130px;
+        grid-area: title;
+
+        .title-text {
+            max-height: 105px;
+            overflow: scroll;
+            margin-bottom: 0;
+        }
+    }
+    .pricelikes-container {
+        grid-area: pricelikes;
+
+        .price-container {
+            display: flex;
+            justify-content: center;
+            margin: 5px;
+
+            .money-one {
+                font-size: 1.5em;
+            }
+            .money-two {
+                font-size: 1em;
+                margin-left: 5px;
+                color: colors.$strikeColor;
+            }
+        }
+        .likes-container {
+            display: flex;
+            justify-content: center;
+            margin: 15px;
+            img {
+                width: 1.5vw;
+            }
+            label {
+                margin-left: 5px;
+                font-size: 1 em;
+            }
+        }
+    }
+        
+        .date-contaner{
+            grid-area: date;
+            width:75px;
+            text-align: center;
+            font-size:.85em;
+        }
+        
+        .dead-container {
+            grid-area: dead;
+            width:75px;
+            text-align: center;    
+            font-size:.7em;
+            img {
+                width: 20px;
+                display:block;
+                margin-left:25px;
+            }
+    
+        }
+    .link {
+        visibility: hidden;
+    }
+    .details {
+        grid-area: details;
+        overflow: scroll;
+        height:100%;
+    }
+}
+
+// @media only screen and (max-width: 500px) {
+//     .deals-container {
+//         margin:5px 0;
+//     }
+    
+//     .deal-content {
+//         display: grid;
+//         grid-template-columns: minmax(100px,15vw) minmax(2500px,45vw) minmax(75px,15vw) minmax(75px,10vw);
+//         grid-template-rows: 100px 200px;
+//         grid-template-areas:
+//             "image title pricelikes dead"
+//             "image details details details";
+//         // grid-row-gap: 5px;
+//         grid-column-gap: 1vw;
+    
+//         .content-image {
+//             width: 100px;
+//             height: 100px;
+//         }
+    
+//         .title-content {
+//             max-height: 100px;
+    
+//         }
+//         .pricelikes-container {
+    
+//             .price-container {
+    
+//                 .money-one {
+//                 }
+//                 .money-two {
+//                 }
+//             }
+//             .likes-container {
+//                 margin: 5px;
+//                 img {
+//                     width: 1.5vw;
+//                 }
+//                 label {
+//                     margin-left: 5px;
+//                     font-size: 1 em;
+//                 }
+//             }
+//         }
+//         .dead-container {
+//             width:50px;
+//             img {
+//                 width: 20px;
+//                 margin-left:5px;
+//             }
+    
+//         }
+//         .details {
+//         }
+//     }
+//   }

@@ -1,0 +1,63 @@
+<%for(let deal of dealData) {%>
+    <div class="deal-content">
+        <div class='overlay-row'>
+            <img class="content-image" src=<%=deal.image_url_sm %> alt="deal image">
+            <div class="title-content">
+                <p class="title-text">
+                    <%= deal.title %>
+                </p>
+            </div>
+        </div>
+        <div class='overlay-row'>
+            <div class="price-likes-container">
+                <div class="price-container">
+                    <span class="money-one">
+                        <money>
+                            <%= deal.price %>
+                        </money>
+                    </span>
+                    <span class="money-two">
+                        <money><s>
+                                <%= deal.old_price %>
+                            </s></money>
+                    </span>
+                </div>
+                <span class="likes-container">
+                    <img src="/img/icons/thumb-up.svg" alt="likes">
+                    <label>
+                        <%= deal.likes %>
+                    </label>
+                </span>
+            </div>
+            <span class="dead-container">
+                <% if(deal.dead < 20) {%>
+                    <img src="/img/icons/dead_icon.svg" alt="skull icon">
+                    <label>
+                        Report this deal as dead.
+                    </label>
+                    <% } else { %>
+                        <img src="/img/icons/dead_icon_purple.svg" alt="skull icon">
+                        <label>
+                            This deal has been reported dead by users.
+                        </label>
+                        <% } %>
+            </span>
+            </div>
+
+        <div class='overlay-row'>
+            <a target="_blank" class="link" href=<%if (deal.affiliate_url==='' || deal.affiliate_url=== null || deal.affiliate_url===undefined) { %>
+                <%=deal.product_url%>
+                <% } else {%>
+                    <%=deal.affiliate_url%>
+                    <% }%>
+             >Go To This Deal</a>
+    </div>
+        <div class='overlay-row details'>
+            <p >
+                <%= deal.details %>
+            </p>
+        </div>
+    </div>
+    <% } %>
+
+    

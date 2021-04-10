@@ -1,9 +1,4 @@
 (function(){
-    //Sets a random plant every time the user refreshes the page. For fun.
-    const NUMBER_OF_PLANTS = 6;
-    const plantHeaderImage = document.getElementById('header_plant');
-    let randomPlant = Math.floor(Math.ceil(Math.random() * NUMBER_OF_PLANTS));
-    plantHeaderImage.src = '/img/sucs/succ_'+randomPlant+'.svg';
 
     //Set up the overlay so it goes away when you click on the outside of it.
     const overlay = document.getElementById('overlay');
@@ -27,10 +22,6 @@
 
             overlay.style.visibility = 'visible';
             overlayContent.innerHTML = htmlContent;
-
-            let details = this.getElementsByClassName('details');
-            let link = this.getElementsByClassName('link');
-
         });
     }
 

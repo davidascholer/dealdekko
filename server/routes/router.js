@@ -10,6 +10,11 @@ const services = require('../services/render');
  */
 route.get('/',services.homeRoutes);
 route.get('/category',services.category);
+route.get('/search',services.search);
+route.get('/about',services.about);
+route.get('/cookie-policy',services.cookie);
+route.get('/privacy-info',services.privacy);
+route.get('/contact',services.contact);
 // /**
 //  * @description add users
 //  * @method GET /add-user
