@@ -8,12 +8,15 @@
  
  const grabDbData = async () => {
 
-     const queryString = 'SELECT * from deals ORDER BY date DESC LIMIT 30';
+     const queryString = 'SELECT * from deals ORDER BY date DESC LIMIT 200';
     
-     await dbConnect.connect();
+     try{    await dbConnect.connect();
      let data = await dbConnect.query(queryString);
      dbConnect.disconnect();
      return data;
+     }catch{
+         grabDbData();
+     }
  };
 
  const parseCategoryData = async cat => {
@@ -26,11 +29,15 @@
          catString += `"%${cats[c]}%"`;
      }
 
-    const queryString = `SELECT * from deals WHERE category LIKE ${catString} ORDER BY date DESC LIMIT 50`;
+    const queryString = `SELECT * from deals WHERE category LIKE ${catString} ORDER BY date DESC LIMIT 300`;
+    try{
     await dbConnect.connect();
     let data = await dbConnect.query(queryString);
     dbConnect.disconnect();
-    return [cat,data];
+    return [data];
+    }catch{
+        parseCategoryData(cat);
+    }
  };
 
  const parseSearchData = async searchString => {
@@ -44,10 +51,14 @@
     }
 
     const queryString = `SELECT * from deals WHERE details LIKE '${querySearchString}' ORDER BY date DESC LIMIT 50`;
-    await dbConnect.connect();
+    try{
+        await dbConnect.connect();
     let data = await dbConnect.query(queryString);
     dbConnect.disconnect();
-    return [decodedSearchString,data];
+    return [data,decodedSearchString];
+    }catch{
+        parseSearchData(searchString);
+    }
  };
 
  module.exports.grabDbData = grabDbData;

@@ -1,7 +1,7 @@
 .sbx-custom {
   display: inline-block;
   position: relative;
-  width: 300px;
+  width: inherit;
   height: 51px;
   white-space: nowrap;
   box-sizing: border-box;

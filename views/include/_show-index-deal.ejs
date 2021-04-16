@@ -1,10 +1,12 @@
-<%for(let deal of dealData) {%>
-    <div class="deal-content">
+
+<%for(let deal in dealData) {%>
+    <!-- <div class="deal-content-<%=Math.trunc(deal/50)%>"> -->
+    <div class="deal-content <% if(parseInt(dealData[deal].dead) >= 20 || dealData[deal].expired==='1'){%>deadDeal<%}%>">
         <div class='overlay-row'>
-            <img class="content-image" src=<%=deal.image_url_sm %> alt="deal image">
+            <img class="content-image" src=<%=dealData[deal].image_url_sm %> alt="deal image">
             <div class="title-content">
                 <p class="title-text">
-                    <%= deal.title %>
+                    <%= dealData[deal].title %>
                 </p>
             </div>
         </div>
@@ -13,51 +15,57 @@
                 <div class="price-container">
                     <span class="money-one">
                         <money>
-                            <%= deal.price %>
+                            <%= dealData[deal].price %>
                         </money>
                     </span>
                     <span class="money-two">
                         <money><s>
-                                <%= deal.old_price %>
+                                <%= dealData[deal].old_price %>
                             </s></money>
                     </span>
                 </div>
-                <span class="likes-container">
+                <span class="likes-container likes<%=dealData[deal].id%>" onclick="addLikeRoute('<%=dealData[deal].id%>')">
                     <img src="/img/icons/thumb-up.svg" alt="likes">
                     <label>
-                        <%= deal.likes %>
+                        <%= parseInt(dealData[deal].likes) + parseInt(dealData[deal].local_likes)%>
                     </label>
                 </span>
             </div>
-            <span class="dead-container">
-                <% if(deal.dead < 20) {%>
+            <span class="dead-container dead<%=dealData[deal].id%>" onclick="addDead('<%=dealData[deal].id%>')">
+                <% if(parseInt(dealData[deal].dead) < 20 && dealData[deal].expired!=='1') {%>
                     <img src="/img/icons/dead_icon.svg" alt="skull icon">
                     <label>
-                        Report this deal as dead.
+                        report this deal as dead
                     </label>
                     <% } else { %>
                         <img src="/img/icons/dead_icon_purple.svg" alt="skull icon">
                         <label>
-                            This deal has been reported dead by users.
+                            DEAL REPORTED DEAD BY USERS
                         </label>
                         <% } %>
             </span>
-            </div>
+        </div>
 
         <div class='overlay-row'>
-            <a target="_blank" class="link" href=<%if (deal.affiliate_url==='' || deal.affiliate_url=== null || deal.affiliate_url===undefined) { %>
-                <%=deal.product_url%>
-                <% } else {%>
-                    <%=deal.affiliate_url%>
-                    <% }%>
-             >Go To This Deal</a>
-    </div>
+            <a target="_blank" class="link" href=<%if (dealData[deal].affiliate_url==='' || dealData[deal].affiliate_url===null ||
+            dealData[deal].affiliate_url===undefined) { %>
+                <%=dealData[deal].product_url%>
+                    <% } else {%>
+                        <%=dealData[deal].affiliate_url%>
+                            <% }%>
+                                >Get This Deal
+            </a>
+        </div>
         <div class='overlay-row details'>
-            <p >
-                <%= deal.details %>
+            <p>
+                <%= dealData[deal].details %>
+                <%if (dealData[deal].vendor==='amazon.com'){%> 
+                    <br/><br/><br/>Don't have Amazon Prime? Students can get a free 6-Month <a href='https://www.amazon.com/amazonprime?_encoding=UTF8&ascsubtag=203d87729db911eb990886ac4273965d0INT&planOptimizationId=WLPStudentMonthlyEligiblePlans&tag=vamplitude-20'>Amazon Prime</a> trial with free 2-day shipping, unlimited video streaming & more.<br/><br/>
+                        Otherwise, there's also a free 1-Month <a href='https://www.amazon.com/amazonprime?_encoding=UTF8&tag=vamplitude-20'>Amazon Prime</a> trial available.
+                    <%}%>
             </p>
         </div>
     </div>
+    <hr class='deal-border'>
+<!-- </div> -->
     <% } %>
-
-    

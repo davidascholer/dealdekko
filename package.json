@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "sass --watch assets/css & nodemon server.js"
-    },
+    "start": "sass --watch assets/css & node server.js"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

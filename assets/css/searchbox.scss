@@ -1,5 +1,5 @@
 $custom:(
-	input-width: 300px,
+	input-width: 100%,
 	input-height: 50px,
 	border-width: 2px,
 	border-radius: 25px,
@@ -41,7 +41,7 @@ $custom:(
 
 @mixin searchbox(
   $font-size: 90%,
-  $input-width: 350px,
+  $input-width: 100%,
   $input-height: $font-size * 2.4,
   $border-width: 1px,
   $border-radius: $input-height / 2,
@@ -61,7 +61,7 @@ $custom:(
 ) {
   display: inline-block;
   position: relative;
-  width: $input-width;
+  width: inherit;
   height: even-px($input-height);
   white-space: nowrap;
   box-sizing: border-box;

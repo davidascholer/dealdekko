@@ -1,8 +1,5 @@
 const mysql = require('mysql');
 
-let failedCount = 0;
-let successCount = 0;
-
 const dbConfig = require('./../services/config').getDBConfig();
 
 let connection;
@@ -32,7 +29,7 @@ exports.connect = () => {
         });
     });
 }
-
+ 
 
 exports.query = (q) => {
     return new Promise((resolve, reject) => {
@@ -43,7 +40,9 @@ exports.query = (q) => {
                     reject(err);
             });
         } catch (err) {
-            //Common. Caused by server drops. Do nothing.
+            console.error(err);
+            this.query(q);
+            //Common. Caused by server drops. Retry query.
         }
     })
 }

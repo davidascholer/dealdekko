@@ -2,29 +2,39 @@
 
 //_show
 .deals-container {
-    margin:50px 0;
+    margin: 5px auto;
+}   
+h1{
+    margin:5px;
 }
-
 .deal-content {
+    max-width: 100vw;
+    margin:20px auto;
+    overflow: hidden;
     display: grid;
-    max-width:2000px;
-    grid-template-columns: minmax(200px,15vw) minmax(300px,45vw) minmax(75px,15vw) minmax(75px,7.5vw) minmax(75px,7.5vw);
-    grid-template-rows: 75px 125px;
+    cursor: default;
+    grid-template-columns: minmax(150px, 10vw) minmax(150px, 20vw) minmax(30px, 20vw) minmax(50px, 20vw) minmax(80px,20vw);
+    grid-template-rows: 75px 75px 30px auto;
     grid-template-areas:
-        "image title pricelikes dead date"
-        "image details details details details";
-    // grid-row-gap: 5px;
-    grid-column-gap: 1vw;
+        "image title title title title "
+        "image price price likes date"
+        "showdeets link link link dead"
+        "details details details details details";
+    gap: 5px 6px;
+    justify-items: start;
+    align-items: center;
+    padding:1vw;
 
     .content-image {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         grid-area: image;
-        text-align: center;
+        justify-self: center;
     }
 
     .title-content {
         overflow: hidden;
+        align-self:start;
         max-height: 130px;
         grid-area: title;
 
@@ -32,15 +42,158 @@
             max-height: 105px;
             overflow: scroll;
             margin-bottom: 0;
+            padding:5px;
         }
     }
-    .pricelikes-container {
-        grid-area: pricelikes;
+
+    .price-container {
+        display: flex;
+        grid-area: price;
+        justify-content: center;
+        width:100%;
+        margin: 5px;
+
+        .money-one {
+            font-size: 1.5em;
+        }
+        .money-two {
+            font-size: 1em;
+            margin-left: 5px;
+            color: colors.$strikeColor;
+        }
+    }
+    .likes-container {
+        grid-area: likes;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 15px;
+        cursor:pointer;
+        img {
+            width: 40px;
+        }
+        label {
+            margin-left: 5px;
+            font-size: 1 em;
+        }
+    }
+
+    .date-contaner {
+        grid-area: date;
+        width: 75px;
+        text-align: center;
+        font-size: 0.85em;
+    }
+
+    .dead-container {
+        grid-area: dead;
+        width: 60px;
+        text-align: center;
+        font-size: 0.5em;
+        justify-self:end;
+        cursor:pointer;
+        img {
+            width: 30px;
+            display: block;
+            margin:auto;
+        }
+    }
+    .link {
+        width:56vw;
+        height:30px;
+        display:flex;
+        align-items: center;
+        justify-content:center;
+        box-shadow: 0px 10px 7px -5px #276873;
+        background: linear-gradient(to bottom, #40e0d0 5%, #00a89a 100%);
+        background-color: #40e0d0;
+        border-radius: 50px;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+        text-shadow: 0px 1px 0px #3d768a;
+    }
+    .showDetails{
+        grid-area:showdeets;
+        display:flex;
+        align-items: center;
+        font-size:1.2em;
+
+        img{
+            width:20px;
+        }
+    }
+    .details {
+        padding:5px 10px;
+        margin:10px 0;
+        max-height:0;
+        grid-area: details;
+        overflow: scroll;
+        visibility: hidden;
+        a {
+            text-decoration:wavy;
+            color: colors.$strikeColor;
+        }
+    }
+
+    .details:hover{
+        padding:4px 9px;
+        border-radius: 5px;
+        border: 1px solid colors.$color;
+
+    }
+    hr{
+        width:95vw;
+        margin-left:2.5vw;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    //_show
+    .deals-container {
+        margin: 0;
+        max-width: 100vw;
+    }
+
+    .deal-content {
+        display: grid;
+        grid-template-columns: minmax(0, 19vw) minmax(0, 19vw) minmax(0, 19vw) minmax(0, 19vw) minmax(0, 19vw);
+        grid-template-rows: minmax(100px,180px) auto auto auto auto;
+        grid-template-areas:
+            "image image title title title"
+            "price price likes likes date"
+            "link link link link dead"
+            "showdeets showdeets showdeets showdeets showdeets"
+            "details details details details details";
+        gap: 10px 1vw;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        padding:0 1vw;
+
+        .content-image {
+            width: minmax(64px,200px);
+            grid-area: image;
+            text-align: center;
+            justify-self: center;
+        }
+
+        .title-content {
+            grid-area: title;
+            justify-self: start;
+            overflow: scroll;
+
+            .title-text {
+                max-height: 100%;
+                overflow: scroll;
+            }
+        }
 
         .price-container {
             display: flex;
+            grid-area: price;
             justify-content: center;
-            margin: 5px;
+            padding: 5px;
 
             .money-one {
                 font-size: 1.5em;
@@ -52,101 +205,54 @@
             }
         }
         .likes-container {
+            grid-area: likes;
             display: flex;
             justify-content: center;
-            margin: 15px;
+            align-items: flex-start;
             img {
-                width: 1.5vw;
+                width: 20px;
             }
             label {
                 margin-left: 5px;
                 font-size: 1 em;
             }
         }
-    }
-        
-        .date-contaner{
+
+        .date-contaner {
             grid-area: date;
-            width:75px;
+            width: 75px;
             text-align: center;
-            font-size:.85em;
+            font-size: 0.85em;
         }
-        
+
         .dead-container {
             grid-area: dead;
-            width:75px;
-            text-align: center;    
-            font-size:.7em;
+            text-align: center;
+            font-size: 0.7em;
             img {
-                width: 20px;
-                display:block;
-                margin-left:25px;
+                width: 50%;
+                margin-left:25%;
+                display: block;
             }
-    
         }
-    .link {
-        visibility: hidden;
-    }
-    .details {
-        grid-area: details;
-        overflow: scroll;
-        height:100%;
+        .link {
+            width:80vw;
+            margin-left:auto;
+        }
+        .showDetails{
+            display:flex;
+            align-items: center;
+            font-size:1.2em;
+        }
+        .details {
+            grid-area: details;
+            width:98vw;
+            overflow: scroll;
+            margin:5px 15px;
+            border-radius: 5px;
+            max-height:0;
+            padding:0 10px;
+            margin:0 1vw;
+        }
     }
 }
-
-// @media only screen and (max-width: 500px) {
-//     .deals-container {
-//         margin:5px 0;
-//     }
-    
-//     .deal-content {
-//         display: grid;
-//         grid-template-columns: minmax(100px,15vw) minmax(2500px,45vw) minmax(75px,15vw) minmax(75px,10vw);
-//         grid-template-rows: 100px 200px;
-//         grid-template-areas:
-//             "image title pricelikes dead"
-//             "image details details details";
-//         // grid-row-gap: 5px;
-//         grid-column-gap: 1vw;
-    
-//         .content-image {
-//             width: 100px;
-//             height: 100px;
-//         }
-    
-//         .title-content {
-//             max-height: 100px;
-    
-//         }
-//         .pricelikes-container {
-    
-//             .price-container {
-    
-//                 .money-one {
-//                 }
-//                 .money-two {
-//                 }
-//             }
-//             .likes-container {
-//                 margin: 5px;
-//                 img {
-//                     width: 1.5vw;
-//                 }
-//                 label {
-//                     margin-left: 5px;
-//                     font-size: 1 em;
-//                 }
-//             }
-//         }
-//         .dead-container {
-//             width:50px;
-//             img {
-//                 width: 20px;
-//                 margin-left:5px;
-//             }
-    
-//         }
-//         .details {
-//         }
-//     }
-//   }

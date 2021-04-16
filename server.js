@@ -21,11 +21,14 @@ app.use('/img',express.static(path.resolve(__dirname,"assets/img")));
 app.use('/js',express.static(path.resolve(__dirname,"assets/js")));
 app.use('/fonts',express.static(path.resolve(__dirname,"assets/fonts")));
 
+//load services
+app.use(express.json({limit:'1mb'}))
+
 //load routers
 app.use('/',require('./server/routes/router'));
 
 
 
-app.listen(PORT,()=>{console.log(`Server is running on port ${PORT}`)});
+app.listen(PORT, '0.0.0.0',()=>{console.log(`Server is running on port ${PORT}`)});
 
  

@@ -1,20 +1,25 @@
 const express = require('express');
 const route = express.Router();
 
-const services = require('../services/render');
+const render_services = require('../services/render');
+const api_services = require('../services/api');
 // const controller = require('../controller/controller');
 
 /**
  * @description Root Route
  * @method GET /
  */
-route.get('/',services.homeRoutes);
-route.get('/category',services.category);
-route.get('/search',services.search);
-route.get('/about',services.about);
-route.get('/cookie-policy',services.cookie);
-route.get('/privacy-info',services.privacy);
-route.get('/contact',services.contact);
+//main views
+route.get('/',render_services.homeRoutes);
+route.get('/category',render_services.category);
+//side views
+route.get('/search',render_services.search);
+route.get('/about',render_services.about);
+route.get('/cookie-policy',render_services.cookie);
+route.get('/privacy-info',render_services.privacy);
+route.get('/contact',render_services.contact);
+//post requests
+route.put('/api/:name/:id',api_services.put);
 // /**
 //  * @description add users
 //  * @method GET /add-user

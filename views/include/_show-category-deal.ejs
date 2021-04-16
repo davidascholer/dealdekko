@@ -1,12 +1,11 @@
 <%for(let deal of dealData) {%>
-    <div class="deal-content">
+    <div class="deal-content <% if(parseInt(deal.dead) >= 20 || deal.expired==='1'){%>deadDeal<%}%>">
         <img class="content-image" src=<%=deal.image_url_sm %> alt="deal image">
         <div class="title-content">
             <p class="title-text">
                 <%= deal.title %>
             </p>
         </div>
-        <div class="pricelikes-container">
             <div class="price-container">
                 <span class="money-one">
                     <money>
@@ -19,40 +18,45 @@
                         </s></money>
                 </span>
             </div>
-            <span class="likes-container">
+            <span class="likes-container likes<%=deal.id%>" onclick="addLike('<%=deal.id%>')">
                 <img src="/img/icons/thumb-up.svg" alt="likes">
                 <label>
-                    <%= deal.likes %>
+                    <%= parseInt(deal.likes) + parseInt(deal.local_likes)%>
                 </label>
             </span>
-        </div>
         <div class="date-container">
             <!-- gives us 20 years before a better solution is needed -->
             <%= String(deal.date).slice(0,String(deal.date).indexOf('202')).slice(0,String(deal.date).indexOf('203'));
                 %>
         </div>
-        <span class="dead-container">
-            <% if(deal.dead < 20) {%>
+        <span class="dead-container dead<%=deal.id%>" onclick="addDead('<%=deal.id%>')">
+            <% if(parseInt(deal.dead) < 20 && deal.expired!=='1') {%>
                 <img src="/img/icons/dead_icon.svg" alt="skull icon">
                 <label>
-                    Report this deal as dead.
+                    report this deal as dead
                 </label>
                 <% } else { %>
                     <img src="/img/icons/dead_icon_purple.svg" alt="skull icon">
                     <label>
-                        This deal has been reported dead by users.
+                        DEAL REPORTED DEAD BY USERS
                     </label>
                     <% } %>
         </span>
+        <span class="showDetails"><img src="/img/icons/chevron-double-down.svg"/><label>Show Details<label></span>
         <p class="details">
             <%= deal.details %>
+            <%= deal.details %>
+                <%if (deal.vendor==='amazon.com'){%> 
+                    <br/><br/><br/>Don't have Amazon Prime? Students can get a free 6-Month <a href='https://www.amazon.com/amazonprime?_encoding=UTF8&ascsubtag=203d87729db911eb990886ac4273965d0INT&planOptimizationId=WLPStudentMonthlyEligiblePlans&tag=vamplitude-20'>Amazon Prime</a> trial with free 2-day shipping, unlimited video streaming & more.<br/><br/>
+                        Otherwise, there's also a free 1-Month <a href='https://www.amazon.com/amazonprime?_encoding=UTF8&tag=vamplitude-20'>Amazon Prime</a> trial available.
+                    <%}%>
         </p>
-        <a href=<%if (deal.affiliate_url==='' || deal.affiliate_url===null || deal.affiliate_url===undefined) { %>
+        <a target="_blank" class="link" href=<%if (deal.affiliate_url==='' || deal.affiliate_url===null || deal.affiliate_url===undefined) { %>
             <%=deal.product_url%>
                 <% } else {%>
                     <%=deal.affiliate_url%>
                         <% }%>
-                            target="_blank" class="link">Go To This Deal
+                            >Get This Deal
         </a>
     </div>
     <hr>

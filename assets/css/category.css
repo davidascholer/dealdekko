@@ -1,23 +1,34 @@
 .deals-container {
-  margin: 50px 0;
+  margin: 5px auto;
+}
+
+h1 {
+  margin: 5px;
 }
 
 .deal-content {
+  max-width: 100vw;
+  margin: 20px auto;
+  overflow: hidden;
   display: grid;
-  max-width: 2000px;
-  grid-template-columns: minmax(200px, 15vw) minmax(300px, 45vw) minmax(75px, 15vw) minmax(75px, 7.5vw) minmax(75px, 7.5vw);
-  grid-template-rows: 75px 125px;
-  grid-template-areas: "image title pricelikes dead date" "image details details details details";
-  grid-column-gap: 1vw;
+  cursor: default;
+  grid-template-columns: minmax(150px, 10vw) minmax(150px, 20vw) minmax(30px, 20vw) minmax(50px, 20vw) minmax(80px, 20vw);
+  grid-template-rows: 75px 75px 30px auto;
+  grid-template-areas: "image title title title title " "image price price likes date" "showdeets link link link dead" "details details details details details";
+  gap: 5px 6px;
+  justify-items: start;
+  align-items: center;
+  padding: 1vw;
 }
 .deal-content .content-image {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   grid-area: image;
-  text-align: center;
+  justify-self: center;
 }
 .deal-content .title-content {
   overflow: hidden;
+  align-self: start;
   max-height: 130px;
   grid-area: title;
 }
@@ -25,32 +36,35 @@
   max-height: 105px;
   overflow: scroll;
   margin-bottom: 0;
+  padding: 5px;
 }
-.deal-content .pricelikes-container {
-  grid-area: pricelikes;
-}
-.deal-content .pricelikes-container .price-container {
+.deal-content .price-container {
   display: flex;
+  grid-area: price;
   justify-content: center;
+  width: 100%;
   margin: 5px;
 }
-.deal-content .pricelikes-container .price-container .money-one {
+.deal-content .price-container .money-one {
   font-size: 1.5em;
 }
-.deal-content .pricelikes-container .price-container .money-two {
+.deal-content .price-container .money-two {
   font-size: 1em;
   margin-left: 5px;
   color: #a62091;
 }
-.deal-content .pricelikes-container .likes-container {
+.deal-content .likes-container {
+  grid-area: likes;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 15px;
+  cursor: pointer;
 }
-.deal-content .pricelikes-container .likes-container img {
-  width: 1.5vw;
+.deal-content .likes-container img {
+  width: 40px;
 }
-.deal-content .pricelikes-container .likes-container label {
+.deal-content .likes-container label {
   margin-left: 5px;
   font-size: 1 em;
 }
@@ -62,22 +76,157 @@
 }
 .deal-content .dead-container {
   grid-area: dead;
-  width: 75px;
+  width: 60px;
   text-align: center;
-  font-size: 0.7em;
+  font-size: 0.5em;
+  justify-self: end;
+  cursor: pointer;
 }
 .deal-content .dead-container img {
-  width: 20px;
+  width: 30px;
   display: block;
-  margin-left: 25px;
+  margin: auto;
 }
 .deal-content .link {
-  visibility: hidden;
+  width: 56vw;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 10px 7px -5px #276873;
+  background: linear-gradient(to bottom, #40e0d0 5%, #00a89a 100%);
+  background-color: #40e0d0;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  text-shadow: 0px 1px 0px #3d768a;
+}
+.deal-content .showDetails {
+  grid-area: showdeets;
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+}
+.deal-content .showDetails img {
+  width: 20px;
 }
 .deal-content .details {
+  padding: 5px 10px;
+  margin: 10px 0;
+  max-height: 0;
   grid-area: details;
   overflow: scroll;
-  height: 100%;
+  visibility: hidden;
+}
+.deal-content .details a {
+  text-decoration: wavy;
+  color: #a62091;
+}
+.deal-content .details:hover {
+  padding: 4px 9px;
+  border-radius: 5px;
+  border: 1px solid #00a89a;
+}
+.deal-content hr {
+  width: 95vw;
+  margin-left: 2.5vw;
+}
+
+@media only screen and (max-width: 575px) {
+  .deals-container {
+    margin: 0;
+    max-width: 100vw;
+  }
+
+  .deal-content {
+    display: grid;
+    grid-template-columns: minmax(0, 19vw) minmax(0, 19vw) minmax(0, 19vw) minmax(0, 19vw) minmax(0, 19vw);
+    grid-template-rows: minmax(100px, 180px) auto auto auto auto;
+    grid-template-areas: "image image title title title" "price price likes likes date" "link link link link dead" "showdeets showdeets showdeets showdeets showdeets" "details details details details details";
+    gap: 10px 1vw;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1vw;
+  }
+  .deal-content .content-image {
+    width: minmax(64px, 200px);
+    grid-area: image;
+    text-align: center;
+    justify-self: center;
+  }
+  .deal-content .title-content {
+    grid-area: title;
+    justify-self: start;
+    overflow: scroll;
+  }
+  .deal-content .title-content .title-text {
+    max-height: 100%;
+    overflow: scroll;
+  }
+  .deal-content .price-container {
+    display: flex;
+    grid-area: price;
+    justify-content: center;
+    padding: 5px;
+  }
+  .deal-content .price-container .money-one {
+    font-size: 1.5em;
+  }
+  .deal-content .price-container .money-two {
+    font-size: 1em;
+    margin-left: 5px;
+    color: #a62091;
+  }
+  .deal-content .likes-container {
+    grid-area: likes;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .deal-content .likes-container img {
+    width: 20px;
+  }
+  .deal-content .likes-container label {
+    margin-left: 5px;
+    font-size: 1 em;
+  }
+  .deal-content .date-contaner {
+    grid-area: date;
+    width: 75px;
+    text-align: center;
+    font-size: 0.85em;
+  }
+  .deal-content .dead-container {
+    grid-area: dead;
+    text-align: center;
+    font-size: 0.7em;
+  }
+  .deal-content .dead-container img {
+    width: 50%;
+    margin-left: 25%;
+    display: block;
+  }
+  .deal-content .link {
+    width: 80vw;
+    margin-left: auto;
+  }
+  .deal-content .showDetails {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+  }
+  .deal-content .details {
+    grid-area: details;
+    width: 98vw;
+    overflow: scroll;
+    margin: 5px 15px;
+    border-radius: 5px;
+    max-height: 0;
+    padding: 0 10px;
+    margin: 0 1vw;
+  }
 }
 
 /*# sourceMappingURL=category.css.map */

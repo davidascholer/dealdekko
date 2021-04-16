@@ -6,9 +6,10 @@
 
     overlay.addEventListener('click',function(){
         overlayContent.innerHTML='';
-        overlay.style.visibility = 'hidden';
+        overlay.style.display = 'none';
     })
     overlayContent.addEventListener('click',function(event){
+        event.cancelBubble = true;
         event.stopPropagation();
     })
 
@@ -20,12 +21,17 @@
             
             let htmlContent = this.outerHTML;
 
-            overlay.style.visibility = 'visible';
+            overlay.style.display = 'block';
             overlayContent.innerHTML = htmlContent;
         });
     }
-
-
-
-
+    
+    
+    
 })()
+
+    function addLikeRoute(elemID){
+        if(document.getElementById('overlay').style.display!=='block')
+        return;
+        addLike(elemID);
+    }
