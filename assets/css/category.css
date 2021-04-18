@@ -62,7 +62,7 @@ h1 {
   cursor: pointer;
 }
 .deal-content .likes-container img {
-  width: 40px;
+  min-width: 5vw;
 }
 .deal-content .likes-container label {
   margin-left: 5px;
@@ -76,18 +76,18 @@ h1 {
 }
 .deal-content .dead-container {
   grid-area: dead;
-  width: 60px;
-  text-align: center;
-  font-size: 0.5em;
-  justify-self: end;
+  width: 10vw;
+  text-align: left;
   cursor: pointer;
 }
 .deal-content .dead-container img {
-  width: 30px;
-  display: block;
-  margin: auto;
+  max-width: 5vw;
+}
+.deal-content .dead-container label {
+  font-size: 0.2em;
 }
 .deal-content .link {
+  max-width: 75vw;
   height: 30px;
   display: flex;
   align-items: center;

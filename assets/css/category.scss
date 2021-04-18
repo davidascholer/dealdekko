@@ -70,7 +70,7 @@ h1{
         margin: 15px;
         cursor:pointer;
         img {
-            width: 40px;
+            min-width: 5vw;
         }
         label {
             margin-left: 5px;
@@ -87,18 +87,18 @@ h1{
 
     .dead-container {
         grid-area: dead;
-        width: 60px;
-        text-align: center;
-        font-size: 0.5em;
-        justify-self:end;
+        width: 10vw;
+        text-align: left;
         cursor:pointer;
         img {
-            width: 30px;
-            display: block;
-            margin:auto;
+            max-width: 5vw;
+        }
+        label{
+            font-size: 0.2em;
         }
     }
     .link {
+        max-width:75vw;
         height:30px;
         display:flex;
         align-items: center;

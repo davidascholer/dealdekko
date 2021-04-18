@@ -234,7 +234,7 @@ body {
     MOBILE STYLES
 */
 @media only screen and (max-width: 575px) {
-    $mobileHeight: 10vh;
+    $mobileHeight: 8vh;
 
     body {
         > :not(.short_banner):not(footer) {
@@ -293,7 +293,7 @@ body {
             height: $mobileHeight;
             display: flex;
             align-items: center;
-            font-size: 2em;
+            font-size: 1.5em;
             img {
                 width: $mobileHeight * 0.6;
                 margin: 0;
@@ -302,19 +302,16 @@ body {
         }
         .categories {
             max-height: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
+            align-items: left;
             overflow: hidden;
             font-family: amatic, Helvetica, serif;
             white-space: nowrap;
 
             * {
-                height: $mobileHeight * 0.5;
+                width:100%;
+                height: $mobileHeight * 0.7;
                 display: block;
-                max-width: 15vw;
-                text-align: center;
+                text-align: left;
                 color: black;
                 font-size: 1.5em;
                 margin: 0 30px;
