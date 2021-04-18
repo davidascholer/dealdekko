@@ -37,6 +37,7 @@ main {
         }
     }
     .deal-content {
+        width:180px;
         max-height: 350px;
         cursor: pointer;
 
@@ -130,97 +131,117 @@ main {
                 }
             }
 
+            .deal-content {
+                width:initial;
+            }
             .content-image {
-                width: 180px;
-                height: 180px;
+                width: 220px;
+                height: 220px;
                 align-self: center;
             }
 
             .title-content {
                 width: 50%;
                 flex-grow: 2;
-
+                
                 .title-text {
                 }
             }
-
-            .price-likes-container {
-                flex-grow: 1;
-                display: flex;
+            
+            .price-likes-dead-container{
+                
+                display:flex;
+                flex-wrap: wrap;
                 justify-content: space-around;
+                width:100%;
 
-                .price-container {
+                .price-likes-container {
+                    flex-grow: 2;
                     display: flex;
-                    align-items: flex-start;
-
-                    .money-one {
-                        font-size: 1.5em;
+                    justify-content: space-around;
+                    
+                    .price-container {
+                        display: flex;
+                        align-items: flex-start;
+                        
+                        .money-one {
+                            font-size: 1.5em;
+                        }
+                        .money-two {
+                            font-size: 1em;
+                            color: colors.$strikeColor;
+                        }
                     }
-                    .money-two {
-                        font-size: 1em;
-                        color: colors.$strikeColor;
+                    
+                    .likes-container {
+                        display: flex;
+                        align-items: center;
+                        
+                        img {
+                            width: 2vw;
+                            min-width:20px;
+                        }
+                        label {
+                            font-size: 1 em;
+                            margin-left: 5px;
+                        }
+                        label::after {
+                            content: " likes";
+                        }
                     }
                 }
-
-                .likes-container {
-                    display: flex;
-                    align-items: center;
-
+                .dead-container {
+                    display:inline-block;
+                    flex-grow: 1;
+                    text-align: center;
+                    font-size: 0.7em;
+                    cursor: pointer;
                     img {
-                        width: 40px;
+                        width: 1.5vw;
+                        min-width:20px;
+                        margin: 0 auto;
+                        display: block;
+                        text-align: center;
                     }
                     label {
-                        font-size: 1 em;
-                        margin-left: 5px;
-                    }
-                    label::after {
-                        content: " likes";
+                        width: 100%;
+                        display: block;
+                        font-size: 0.5em;
+                        text-align: center;
                     }
                 }
-            }
-            .details,
-            .link,
-            .dead-container {
-                display: inherit;
-            }
-
+        }
+        .details,
+        .link{
+            display: inherit;
+        }
+        
             .details {
                 margin-bottom: 10px;
+                background-color: inherit;
+
                 a {
                     text-decoration: wavy;
                     color: colors.$strikeColor;
                 }
             }
-            .dead-container {
-                align-self: flex-start;
-                margin-right: 3vw;
-                flex-wrap: wrap;
-                justify-content: center;
-                cursor: pointer;
-                img {
-                    width: 30px;
-                    margin: auto;
-                }
-                label {
-                    width: 100%;
-                    font-size: 0.5em;
-                    text-align: center;
-                }
-            }
-            .link {
-                flex-grow: 1;
-                margin: 0;
-                justify-content: center;
-
+            .link-container {
+                width:96%;
+                margin-left:2%;
+                height:5vh;
                 box-shadow: 0px 10px 14px -7px #276873;
                 background: linear-gradient(to bottom, #40e0d0 5%, #00a89a 100%);
                 background-color: #40e0d0;
                 border-radius: 50px;
                 font-weight: bold;
                 text-decoration: none;
-                color: white;
                 text-shadow: 0px 1px 0px #3d768a;
-                text-align: center;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                .link {
+                    color: white;
+                }
             }
         }
     }
@@ -254,7 +275,7 @@ main {
             .content-image {
                 width: 25vw;
                 height: 25vw;
-                padding-left: 1vw;
+                padding: 2vw;
             }
 
             .title-content {
@@ -341,6 +362,7 @@ main {
             border-radius: 10px;
             overflow: scroll;
             cursor: default;
+
             .overlay-row {
                 display: block;
                 align-items: center;
@@ -361,91 +383,85 @@ main {
                 display: block;
                 text-align: center;
             }
-
-            .price-likes-container {
-                display: block;
-                text-align: center;
-
-                .money-one {
-                    font-size: 1.5em;
-                }
-                .money-two {
-                    font-size: 1em;
-                    color: colors.$strikeColor;
-                }
-                .price-container {
+            .price-likes-dead-container {
+                display: flex;
+                justify-content: space-evenly;
+                .price-likes-container {
+                    flex-grow: 2;
                     display: flex;
-                    width: 100%;
-                    justify-content: center;
+                    justify-content: space-around;
+                    .price-container {
+                        display: flex;
+                        justify-content: center;
+                        .money-one {
+                            font-size: 1.5em;
+                        }
+                        .money-two {
+                            font-size: 1em;
+                            color: colors.$strikeColor;
+                        }
+                    }
+
+                    .likes-container {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        img {
+                            width: 30px;
+                        }
+                        label {
+                            font-size: 1 em;
+                            margin-left: 5px;
+                        }
+                    }
                 }
 
-                .likes-container {
-                    display: flex;
-                    width: 100%;
-                    justify-content: center;
-                    align-items: center;
+                .dead-container {
+                    flex-grow: 1;
+                    text-align: center;
+                    font-size: 0.7em;
+                    cursor: pointer;
                     img {
-                        width: 30px;
+                        width: 20px;
+                        margin: 0 auto;
+                        display: block;
+                        text-align: center;
                     }
                     label {
-                        font-size: 1 em;
-                        margin-left: 5px;
+                        width: 100%;
+                        display: block;
+                        font-size: 0.5em;
+                        text-align: center;
                     }
-                    label::after {
-                        content: " likes";
-                    }
                 }
             }
-            .details,
-            .link,
-            .dead-container {
-                display: inherit;
-            }
-
-            .details {
-                margin-bottom: 10px;
-                text-align: center;
-                a {
-                    text-decoration:wavy;
-                    color: colors.$strikeColor;
-                }
-            }
-
-            .dead-container {
-
-                align-self: flex-start;
-                width: 100%;
-                text-align: center;
-                flex-wrap: wrap;
-                justify-content: center;
-                text-align: center;
-                font-size: 0.7em;
-                cursor: pointer;
-                img {
-                    width: 20px;
-                    display: block;
-                }
-                label {
-                    width: 100%;
-                    font-size: 0.5em;
-                    text-align: center;
-                }
-    
-            }
-            .link {
-                flex-grow: 1;
-                margin: 0;
-                justify-content: center;
-    
+            .link-container {
+                width:96%;
+                margin-left:2%;
+                height:5vh;
                 box-shadow: 0px 10px 14px -7px #276873;
                 background: linear-gradient(to bottom, #40e0d0 5%, #00a89a 100%);
                 background-color: #40e0d0;
                 border-radius: 50px;
                 font-weight: bold;
                 text-decoration: none;
-                color: white;
                 text-shadow: 0px 1px 0px #3d768a;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                .link {
+                    color: white;
+                }
+            }
+            .details {
+                width: 100%;
+                min-height:40vh;
+                display: block;
                 text-align: center;
+                a {
+                    text-decoration: wavy;
+                    color: colors.$strikeColor;
+                }
             }
         }
     }
