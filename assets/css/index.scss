@@ -1,143 +1,68 @@
+/**
+    UNIVERSAL STYLES
+*/
 @use 'colors' as colors;
 
-//_show
-.deals-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-template-rows: 350px;
-    grid-column-gap: 75px;
-    grid-row-gap: 50px;
-    justify-content: space-between;
-    text-align: center;
-    min-height: 50vh;
-}
-@media only screen and (max-width: 650px) {
-    .deals-container {
-        grid-template-columns: repeat(2, minmax(150px, 1fr));
-    }
-}
-.deal-content {
-    max-height: 350px;
-    cursor: pointer;
-
-    * + * {
-        text-align: initial;
-    }
-    .content-image {
-        width: 180px;
-        height: 180px;
-    }
-
-    .price-likes-container {
+main {
+    margin: 0;
+    overflow: hidden;
+    h1 {
+        width: 100vw;
         overflow: hidden;
-        margin: auto;
-        text-align: center;
-        .price-container {
-            display: flex;
-            justify-content: center;
-            overflow-x: scroll;
-
-            .money-one {
-                font-size: 1.5em;
-            }
-            .money-two {
-                font-size: 1em;
-                margin-left: 5px;
-                color: colors.$strikeColor;
-            }
-        }
-
-        .likes-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-
-            img {
-                width: 25px;
-            }
-            label {
-                margin-left: 5px;
-                font-size: 0.8 em;
-            }
-        }
-    }
-
-    .title-content {
-        overflow: hidden;
-        max-height: 130px;
-
-        .title-text {
-            max-height: 105px;
-            overflow: hidden;
-            margin-bottom: 0;
-        }
-    }
-    .details,
-    .link,
-    .dead-container {
-        display: none;
     }
 }
 
-//#overlay
 #overlay {
-    position: fixed;
     width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    padding: 5vh 20vw;
-    background-color: rgba(0, 0, 0, 0.95);
-    display: none;
-    z-index: 1;
+    overflow: hidden;
+}
 
-    #overlay-content {
-        background-color: white;
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        overflow: scroll;
-        cursor: default;
-
-        .overlay-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            align-items: center;
-            > * {
-                padding: 1vw;
-            }
+/**
+    DESKTOP STYLES
+*/
+@media only screen and (min-width: 576px) {
+    .deals-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-rows: 350px;
+        grid-column-gap: 75px;
+        grid-row-gap: 50px;
+        justify-content: space-between;
+        text-align: center;
+        min-height: 50vh;
+    }
+    @media only screen and (max-width: 650px) {
+        .deals-container {
+            grid-template-columns: repeat(2, minmax(150px, 1fr));
         }
+    }
+    .deal-content {
+        max-height: 350px;
+        cursor: pointer;
 
+        * + * {
+            text-align: initial;
+        }
         .content-image {
             width: 180px;
             height: 180px;
-            align-self: center;
-        }
-
-        .title-content {
-            width: 50%;
-            flex-grow: 2;
-
-            .title-text {
-            }
         }
 
         .price-likes-container {
-            flex-grow: 1;
-            display: flex;
-            justify-content: space-around;
-
+            overflow: hidden;
+            margin: auto;
+            text-align: center;
             .price-container {
                 display: flex;
-                align-items: flex-start;
+                justify-content: center;
+                overflow-x: scroll;
 
                 .money-one {
                     font-size: 1.5em;
                 }
                 .money-two {
                     font-size: 1em;
+                    margin-left: 5px;
                     color: colors.$strikeColor;
                 }
             }
@@ -145,83 +70,168 @@
             .likes-container {
                 display: flex;
                 align-items: center;
+                justify-content: center;
+                cursor: pointer;
 
                 img {
-                    width: 40px;
+                    width: 25px;
                 }
                 label {
-                    font-size: 1 em;
                     margin-left: 5px;
+                    font-size: 0.8 em;
                 }
-                label::after {
-                    content: " likes";
-                }
+            }
+        }
+
+        .title-content {
+            overflow: hidden;
+            max-height: 130px;
+
+            .title-text {
+                max-height: 105px;
+                overflow: hidden;
+                margin-bottom: 0;
             }
         }
         .details,
         .link,
         .dead-container {
-            display: inherit;
+            display: none;
         }
+    }
 
-        .details {
-            margin-bottom: 10px;
-            a {
-                text-decoration:wavy;
-                color: colors.$strikeColor;
+    //#overlay
+    #overlay {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        padding: 5vh 20vw;
+        background-color: rgba(0, 0, 0, 0.95);
+        display: none;
+        z-index: 1;
+
+        #overlay-content {
+            background-color: white;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            overflow: scroll;
+            cursor: default;
+
+            .overlay-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                align-items: center;
+                > * {
+                    padding: 1vw;
+                }
             }
-        }
-        .dead-container {
-            align-self: flex-start;
-            margin-right: 3vw;
-            flex-wrap: wrap;
-            justify-content: center;
-            cursor: pointer;
-            img {
-                width: 30px;
-                margin: auto;
+
+            .content-image {
+                width: 180px;
+                height: 180px;
+                align-self: center;
             }
-            label {
-                width: 100%;
-                font-size: 0.5em;
+
+            .title-content {
+                width: 50%;
+                flex-grow: 2;
+
+                .title-text {
+                }
+            }
+
+            .price-likes-container {
+                flex-grow: 1;
+                display: flex;
+                justify-content: space-around;
+
+                .price-container {
+                    display: flex;
+                    align-items: flex-start;
+
+                    .money-one {
+                        font-size: 1.5em;
+                    }
+                    .money-two {
+                        font-size: 1em;
+                        color: colors.$strikeColor;
+                    }
+                }
+
+                .likes-container {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 40px;
+                    }
+                    label {
+                        font-size: 1 em;
+                        margin-left: 5px;
+                    }
+                    label::after {
+                        content: " likes";
+                    }
+                }
+            }
+            .details,
+            .link,
+            .dead-container {
+                display: inherit;
+            }
+
+            .details {
+                margin-bottom: 10px;
+                a {
+                    text-decoration: wavy;
+                    color: colors.$strikeColor;
+                }
+            }
+            .dead-container {
+                align-self: flex-start;
+                margin-right: 3vw;
+                flex-wrap: wrap;
+                justify-content: center;
+                cursor: pointer;
+                img {
+                    width: 30px;
+                    margin: auto;
+                }
+                label {
+                    width: 100%;
+                    font-size: 0.5em;
+                    text-align: center;
+                }
+            }
+            .link {
+                flex-grow: 1;
+                margin: 0;
+                justify-content: center;
+
+                box-shadow: 0px 10px 14px -7px #276873;
+                background: linear-gradient(to bottom, #40e0d0 5%, #00a89a 100%);
+                background-color: #40e0d0;
+                border-radius: 50px;
+                font-weight: bold;
+                text-decoration: none;
+                color: white;
+                text-shadow: 0px 1px 0px #3d768a;
                 text-align: center;
             }
         }
-        .link {
-            flex-grow: 1;
-            margin: 0;
-            justify-content: center;
-
-            box-shadow: 0px 10px 14px -7px #276873;
-            background: linear-gradient(to bottom, #40e0d0 5%, #00a89a 100%);
-            background-color: #40e0d0;
-            border-radius: 50px;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-            text-shadow: 0px 1px 0px #3d768a;
-            text-align: center;
-        }
+    }
+    hr {
+        display: none;
     }
 }
-hr {
-    display: none;
-}
+/**
+    MOBILE STYLES
+*/
 @media only screen and (max-width: 575px) {
-    main {
-        margin: 0;
-        overflow: hidden;
-        h1 {
-            width: 100vw;
-            overflow: hidden;
-        }
-    }
-
-    #overlay {
-        width: 100vw;
-        overflow: hidden;
-    }
-
     .deals-container {
         display: inline-block;
         width: 100vw;
@@ -234,7 +244,7 @@ hr {
         .deal-content {
             cursor: default;
             display: block;
-            max-height: 350px;
+            max-height: 200px;
             cursor: pointer;
 
             .overlay-row:not(.details) {
@@ -242,21 +252,20 @@ hr {
             }
 
             .content-image {
-                width: 50vw;
-                height: 50vw;
-                margin-left:5vw;
+                width: 25vw;
+                height: 25vw;
+                padding-left: 1vw;
             }
 
             .title-content {
-                width: 40vw;
-                padding:2vw;
+                width: 75vw;
+                padding: 2vw;
                 text-align: center;
-                grid-area: title;
                 overflow: hidden;
-                max-height: initial;
 
                 .title-text {
-                    max-height: initial;
+                    max-height: 105px;
+                    overflow: scroll;
                     margin-bottom: 0;
                 }
             }
@@ -265,18 +274,49 @@ hr {
                 display: flex;
                 width: 100vw;
                 justify-content: space-evenly;
-                margin:1vh 0;
-                font-size: .8em;
+                margin: 1vh 0;
+                font-size: 0.8em;
 
-                .likes-container {
-                    font-size: .7em;
+                .money-one {
+                    font-size: 1.5em;
                 }
+                .money-two {
+                    font-size: 1em;
+                    margin-left: 5px;
+                    color: colors.$strikeColor;
+                }
+
+                .price-container {
+                    display: flex;
+                    justify-content: center;
+                    overflow-x: scroll;
+                }
+                .likes-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    font-size: 0.7em;
+
+                    img {
+                        width: 25px;
+                    }
+                    label {
+                        margin-left: 5px;
+                        font-size: 0.8 em;
+                    }
+                }
+            }
+            .details,
+            .link,
+            .dead-container {
+                display: none;
             }
         }
         hr {
             display: block;
             width: 90vw;
-            margin:2vh 5vw;
+            margin: 2vh 5vw;
         }
     }
     .details {
@@ -284,16 +324,36 @@ hr {
     }
     //overlay
     #overlay {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.95);
+        display: none;
+        z-index: 1;
         padding: 60px 20px;
 
         #overlay-content {
+            background-color: white;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            overflow: scroll;
+            cursor: default;
             .overlay-row {
                 display: block;
+                align-items: center;
+                > * {
+                    padding: 1vw;
+                }
             }
 
             .content-image {
                 display: block;
                 margin: auto;
+                width: 180px;
+                height: 180px;
             }
 
             .title-content {
@@ -306,6 +366,13 @@ hr {
                 display: block;
                 text-align: center;
 
+                .money-one {
+                    font-size: 1.5em;
+                }
+                .money-two {
+                    font-size: 1em;
+                    color: colors.$strikeColor;
+                }
                 .price-container {
                     display: flex;
                     width: 100%;
@@ -316,8 +383,16 @@ hr {
                     display: flex;
                     width: 100%;
                     justify-content: center;
+                    align-items: center;
                     img {
                         width: 30px;
+                    }
+                    label {
+                        font-size: 1 em;
+                        margin-left: 5px;
+                    }
+                    label::after {
+                        content: " likes";
                     }
                 }
             }
@@ -328,10 +403,16 @@ hr {
             }
 
             .details {
+                margin-bottom: 10px;
                 text-align: center;
+                a {
+                    text-decoration:wavy;
+                    color: colors.$strikeColor;
+                }
             }
 
             .dead-container {
+
                 align-self: flex-start;
                 width: 100%;
                 text-align: center;
@@ -339,10 +420,32 @@ hr {
                 justify-content: center;
                 text-align: center;
                 font-size: 0.7em;
+                cursor: pointer;
                 img {
                     width: 20px;
                     display: block;
                 }
+                label {
+                    width: 100%;
+                    font-size: 0.5em;
+                    text-align: center;
+                }
+    
+            }
+            .link {
+                flex-grow: 1;
+                margin: 0;
+                justify-content: center;
+    
+                box-shadow: 0px 10px 14px -7px #276873;
+                background: linear-gradient(to bottom, #40e0d0 5%, #00a89a 100%);
+                background-color: #40e0d0;
+                border-radius: 50px;
+                font-weight: bold;
+                text-decoration: none;
+                color: white;
+                text-shadow: 0px 1px 0px #3d768a;
+                text-align: center;
             }
         }
     }
