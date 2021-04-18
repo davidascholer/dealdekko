@@ -291,14 +291,10 @@ body a {
     padding: 2px;
   }
   header .categories {
-    height: 0;
     max-height: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    height: 30px;
-    min-height: 30px;
-    max-height: 30px;
     align-items: center;
     overflow: hidden;
     font-family: amatic, Helvetica, serif;
@@ -331,7 +327,7 @@ body a {
 
   main {
     font-size: 0.9em;
-    min-height: 85vh;
+    min-height: 8;
     overflow: hidden;
   }
 

@@ -236,16 +236,6 @@ body {
 @media only screen and (max-width: 575px) {
     $mobileHeight: 10vh;
 
-    @mixin constraints {
-        width: 100vw;
-        max-width: 100vw;
-        min-width: 100vw;
-        height: initial;
-        min-height: initial;
-        max-height: initial;
-        margin: 0;
-        overflow: hidden;
-    }
     body {
         > :not(.short_banner):not(footer) {
             margin: 0;
@@ -311,14 +301,10 @@ body {
             }
         }
         .categories {
-            height: 0;
             max-height: 0;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            height: 30px;
-            min-height: 30px;
-            max-height: 30px;
             align-items: center;
             overflow: hidden;
             font-family: amatic, Helvetica, serif;
@@ -353,7 +339,7 @@ body {
 
     main {
         font-size: 0.9em;
-        min-height: 85vh;
+        min-height: 8;
         overflow: hidden;
     }
 
