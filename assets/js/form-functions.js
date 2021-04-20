@@ -15,7 +15,7 @@
     //     }
     // });
     document.getElementById('searchbutton').addEventListener('click', function () {
-      searchDeals(searchBox);
+        searchDeals(searchBox);
     });
 
     const showCat = document.getElementsByClassName('show-cat-mobile');
@@ -38,49 +38,41 @@
     document.getElementById('mobile-selection-4').addEventListener('click', function () { hideAllAndShow('section-4') });
 
 
-     //Set up the overlay so it goes away when you click on the outside of it.
-     const overlay = document.getElementById('overlay');
-     const overlayContent = document.getElementById('overlay-content');
- 
-     overlay.addEventListener('click',function(){
-         overlayContent.innerHTML='';
-         overlay.style.display = 'none';
-     })
-    //  overlayContent.addEventListener('click',function(event){
-    //      event.stopPropagation();
-    //  });
+    //Set up the overlay so it goes away when you click on the outside of it.
+    const overlay = document.getElementById('overlay');
+    const overlayContent = document.getElementById('overlay-content');
 
-    //  const clickableContainers = document.getElementsByClassName('price-likes-dead-container');
-    //  for(let clickableContainer of clickableContainers){
-    //     clickableContainer.addEventListener('click',function(event){
-    //         alert('click');
-    //     });
-    // }
-    //  const linkContainers = document.getElementsByClassName('link-container');
-    //  for(let linkContainer of linkContainers){
-    //     linkContainer.addEventListener('click',function(event){
-    //         alert('link');
-    //     });
-    // }
- 
-     const dealViews = document.getElementsByClassName('deal-content');
-     for(let dealView of dealViews){
-         dealView.addEventListener('click',function(){
-             
-             let htmlContent = this.outerHTML;
- 
-             overlay.style.display = 'block';
-             overlayContent.innerHTML = htmlContent;
-         });
-     }
- 
-    
+    overlay.addEventListener('click', function () {
+        overlayContent.innerHTML = '';
+        overlay.style.display = 'none';
+        history.back();
+    });
+
+    window.addEventListener('popstate', (event) => {
+            overlayContent.innerHTML = '';
+            overlay.style.display = 'none';
+    });
+
+    const dealViews = document.getElementsByClassName('deal-content');
+    for (let dealView of dealViews) {
+        dealView.addEventListener('click', function () {
+
+            let htmlContent = this.outerHTML;
+
+            overlay.style.display = 'block';
+            overlayContent.innerHTML = htmlContent;
+
+            history.pushState({state:null}, '');
+        });
+    }
+
+
 })();
 
-function addLikeRoute(event, elemID){
+function addLikeRoute(event, elemID) {
     event.stopPropagation();
-    if(document.getElementById('overlay').style.display!=='block')
-    return;
+    if (document.getElementById('overlay').style.display !== 'block')
+        return;
     addLike(elemID);
 }
 
@@ -99,7 +91,7 @@ function addLike(elemID) {
     putRequest('like', elemID);
 }
 function addDead(event, elemID) {
-   
+
     event.stopPropagation();
     //update UI elements
     const curElem = document.getElementsByClassName('dead' + elemID);
@@ -157,7 +149,7 @@ const hideAllAndShow = element => {
 
         const setDelay = false;
 
-         //If the selected item is down, take any other potential selections down and bring this one up.
+        //If the selected item is down, take any other potential selections down and bring this one up.
         if (sec1.contains('showfootersection'))
             hideOneShowAnother(sec1, section.classList);
         else if (sec2.contains('showfootersection'))

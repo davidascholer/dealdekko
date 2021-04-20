@@ -31,7 +31,7 @@
                     </label>
                 </span>
             <span class="dead-container dead<%=dealData[deal].id%>" onclick="addDead(event,'<%=dealData[deal].id%>')">
-                <% if(!parseInt(dealData[deal].dead) < 20 && dealData[deal].expired!=='1' ) {%>
+                <% if(!parseInt(dealData[deal].dead) < 20 && dealData[deal].expired!=='1') {%>
                     <img src="/img/icons/dead_icon.svg" alt="skull icon">
                     <label>
                         report expired
