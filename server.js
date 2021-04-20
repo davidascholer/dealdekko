@@ -28,14 +28,14 @@ app.use(express.json({limit:'1mb'}))
 app.use('/',require('./server/routes/router'));
 
 //redirect to https
-if(process.env.NODE_ENV === 'production') {
-    app.use((req, res, next) => {
-      if (req.header('x-forwarded-proto') !== 'https')
-        res.redirect(`https://${req.header('host')}${req.url}`)
-      else
-        next()
-    })
-  }
+// if(process.env.NODE_ENV === 'production') {
+//     app.use((req, res, next) => {
+//       if (req.header('x-forwarded-proto') !== 'https')
+//         res.redirect(`https://${req.header('host')}${req.url}`)
+//       else
+//         next()
+//     })
+//   }
 
 app.listen(PORT, '0.0.0.0',()=>{console.log(`Server is running on port ${PORT}`)});
 
