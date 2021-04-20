@@ -1,6 +1,7 @@
 /**
  * Keeping all of the functions to our database modules here.
  */
+const { connection } = require('mongoose');
 const dbConnect = require('./../database/db_connect');
 
 
@@ -12,20 +13,25 @@ const grabDbData = async () => {
 
     try {
         await dbConnect.connect();
+        console.log('Created connection in model');
         let data = await dbConnect.query(queryString);
         for (let d in data) {
-            if (data[d].vendor === 'slickdeals.net')
-                delete data[d];
-            // if (data[d].title.includes('slickdeals'))
-            //     delete data[d];
-            // if (data[d].details.includes('slickdeals'))
-            //     delete data[d];
-            // if (data[d].details.includes('thanks'))
-            //     delete data[d];
+            if (data[d]) {
+                const vendor = data[d].vendor;
+                const title = data[d].title;
+                const details = data[d].details;
+                if (data === 'slickdeals.net')
+                    delete data[d];
+                else if (title.includes('slickdeals') || title.includes(' SD '))
+                    delete data[d];
+                else if (details.includes('slickdeals') || details.includes('thanks'))
+                    delete data[d];
+            }
         }
-        dbConnect.disconnect();
         return data;
-    } catch {
+    } catch (err) {
+        console.log('Error creating connection in model. Err: ' + err);
+        dbConnect.disconnect();
         grabDbData();
     }
 };
