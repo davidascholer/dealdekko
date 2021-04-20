@@ -1,32 +1,32 @@
 <!--include head-->
 <%-include('include/_head')%>
-<link href="/css/styles.css" rel="stylesheet" type="text/css" />
-<link href="/css/index.css" rel="stylesheet" type="text/css" />
-</head>
-<!--/include head--> 
-<body>
-    <div id="overlay" class="hidden">
-        <div id="overlay-content"></div>
-    </div>
-<!--include header-->
-<%-include('include/_header')%>
-<!--/include header-->   
- <aside class="short_banner">Hurry! Before you miss these deals... like two ships passing in the night.</aside>
-    <aside class="banner margined">
-        <%-include('include/banners/night_scene')%>
-    </aside>
-    <main>
-            <h1>Daily Dekko</h1>
-            <div class="deals-container">
- 
-                <%-include('include/_show-index-deal')%>
+    <link href="/css/index.css" rel="stylesheet" type="text/css" />
+    </head>
+    <!--/include head-->
 
-            </div>
-    </main>
-    <!--include footer-->
-    <%-include('include/_footer')%> 
-    <!--/include footer-->
-        <!-- script goes here -->
-    <script src="/js/index.js"></script>
-</body>
-</html>
+    <body>
+        <div id="overlay" class="hidden">
+            <div id="overlay-content"></div>
+        </div>
+        <!--include header-->
+        <%-include('include/_header')%>
+            <!--/include header-->
+            <aside class="short_banner">Hurry! Before you miss these deals... like two ships passing in the night.
+            </aside>
+            <aside class="banner margined">
+                <%-include('include/banners/night_scene')%>
+            </aside>
+            <main>
+                <h1>Daily Dekko</h1>
+                    <div class="deals-container">
+
+                        <%-include('include/_show-deals')%>
+
+                    </div>
+            </main>
+            <!--include footer-->
+            <%-include('include/_footer')%>
+                <!--/include footer-->
+    </body>
+
+    </html>

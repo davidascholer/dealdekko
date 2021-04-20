@@ -25,12 +25,10 @@
         if (cat[0].classList.contains('show')) {
             cat[0].classList.remove('show');
             cat[0].classList.add('unshow');
-            innerTextSpan[0].innerHTML = "Show Categories";
         }
         else {
             cat[0].classList.remove('unshow');
             cat[0].classList.add('show');
-            innerTextSpan[0].innerHTML = "Hide Categories";
         }
     })
 
@@ -40,20 +38,51 @@
     document.getElementById('mobile-selection-4').addEventListener('click', function () { hideAllAndShow('section-4') });
 
 
-    // const content2=document.getElementsByClassName('deal-content-2');
-    // const content3=document.getElementsByClassName('deal-content-3');
-    // const content4=document.getElementsByClassName('deal-content-4');
-    // for(let c2 of content2){
-    //     c2.style.display="none";
+     //Set up the overlay so it goes away when you click on the outside of it.
+     const overlay = document.getElementById('overlay');
+     const overlayContent = document.getElementById('overlay-content');
+ 
+     overlay.addEventListener('click',function(){
+         overlayContent.innerHTML='';
+         overlay.style.display = 'none';
+     })
+    //  overlayContent.addEventListener('click',function(event){
+    //      event.stopPropagation();
+    //  });
+
+    //  const clickableContainers = document.getElementsByClassName('price-likes-dead-container');
+    //  for(let clickableContainer of clickableContainers){
+    //     clickableContainer.addEventListener('click',function(event){
+    //         alert('click');
+    //     });
     // }
-    // for(let c3 of content3){
-    //     c3.style.display="none";
+    //  const linkContainers = document.getElementsByClassName('link-container');
+    //  for(let linkContainer of linkContainers){
+    //     linkContainer.addEventListener('click',function(event){
+    //         alert('link');
+    //     });
     // }
-    // for(let c4 of content4){
-    //     c4.style.display="none";
-    // }
+ 
+     const dealViews = document.getElementsByClassName('deal-content');
+     for(let dealView of dealViews){
+         dealView.addEventListener('click',function(){
+             
+             let htmlContent = this.outerHTML;
+ 
+             overlay.style.display = 'block';
+             overlayContent.innerHTML = htmlContent;
+         });
+     }
+ 
     
 })();
+
+function addLikeRoute(event, elemID){
+    event.stopPropagation();
+    if(document.getElementById('overlay').style.display!=='block')
+    return;
+    addLike(elemID);
+}
 
 function addLike(elemID) {
     //update UI elements
@@ -69,7 +98,9 @@ function addLike(elemID) {
     //create a put request
     putRequest('like', elemID);
 }
-function addDead(elemID) {
+function addDead(event, elemID) {
+   
+    event.stopPropagation();
     //update UI elements
     const curElem = document.getElementsByClassName('dead' + elemID);
     for (let e of curElem) {

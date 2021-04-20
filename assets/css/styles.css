@@ -43,6 +43,7 @@ body a {
   .deadDeal {
     background-color: #d3e7dd;
   }
+
   header {
     min-width: 600px;
     margin-top: 1vh;
@@ -240,8 +241,39 @@ body a {
     overflow: hidden;
   }
 
+  .deal-content {
+    background-color: white;
+  }
+
   .deadDeal {
     background-color: #d3e7dd;
+  }
+  .deadDeal .dead-container {
+    flex-grow: 1;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.5rem;
+  }
+  .deadDeal .dead-container img {
+    width: 20px !important;
+    margin-right: 1vw;
+  }
+  .deadDeal .dead-container label {
+    font-size: 0.5rem;
+  }
+  .deadDeal .vendor {
+    display: none;
+  }
+
+  #overlay .deal-content {
+    background-color: white;
+    border-radius: 10px;
+  }
+  #overlay .deadDeal {
+    background-color: #d3e7dd;
+    border-radius: 10px;
   }
 
   header {

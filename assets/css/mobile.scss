@@ -1,9 +1,8 @@
 @use 'colors' as colors;
-
 /**
-    DESKTOP STYLES
+    MOBILE STYLES
 */
-@media only screen and (min-width: 576px) {
+@media only screen and (max-width: 575px) {
     main {
         margin: 0;
         overflow: hidden;
@@ -15,18 +14,11 @@
 
     #overlay {
         overflow: hidden;
-        .deal-content {
-            background-color: white;
-            border-radius: 10px;
-        }
-        .deadDeal {
-            background-color: colors.$ssTwo;
-            border-radius: 10px;
-        }
     }
+
     .deals-container {
         display: inline-block;
-        width: 90vw;
+        width: 100vw;
         margin: 0;
         overflow: hidden;
         cursor: pointer;
@@ -34,7 +26,6 @@
         .deal-content {
             min-width: 320px;
             min-height: 120px;
-            max-height: 220px;
             height: 25vw;
             padding: 0 10px;
             overflow: visible;
@@ -42,8 +33,6 @@
             .content-image {
                 width: 25vw;
                 height: 25vw;
-                max-width: 220px;
-                max-height: 220px;
                 padding: 10px;
                 float: left;
             }
@@ -54,7 +43,7 @@
 
                 .title-text {
                     overflow: scroll;
-                    font-size: 1rem;
+                    font-size: 0.7rem;
                 }
             }
 
@@ -66,6 +55,7 @@
                 > * {
                     text-align: center;
                 }
+
                 .price-container {
                     flex-grow: 1;
                     display: flex;
@@ -73,10 +63,10 @@
                     overflow-x: scroll;
 
                     .money-one {
-                        font-size: 1.25rem;
+                        font-size: 0.7rem;
                     }
                     .money-two {
-                        font-size: 0.9rem;
+                        font-size: 0.5rem;
                         color: colors.$strikeColor;
                     }
                 }
@@ -86,15 +76,13 @@
                     align-items: center;
                     justify-content: center;
                     cursor: pointer;
+                    font-size: 0.5rem;
 
                     img {
-                        width: 35px;
+                        width: 25px;
                     }
                     label {
-                        font-size: 1rem;
-                    }
-                    label::after {
-                        content: " likes";
+                        font-size: 0.5rem;
                     }
                 }
 
@@ -103,7 +91,7 @@
                 }
                 .vendor {
                     flex-grow: 1;
-                    font-size: 1rem;
+                    font-size: 0.7rem;
                 }
             }
             .link {
@@ -115,27 +103,24 @@
         }
         hr {
             display: block;
-            width: 95vw;
-            margin: 0;
-            margin-left: 2.5vw;
+            width: 90vw;
+            margin: 0 5vw;
         }
         .deadDeal {
-            img {
-                background-color: colors.$ssTwo;
-            }
             .dead-container {
                 flex-grow: 1;
-                display: flex !important;
+                display: flex;
                 align-items: center;
+                justify-content: center;
                 cursor: pointer;
-                font-size: 0.7rem;
+                font-size: 0.5rem;
 
                 img {
                     width: 25px;
                     margin-right: 1vw;
                 }
                 label {
-                    font-size: 0.7rem;
+                    font-size: 0.5rem;
                 }
             }
             .vendor {
@@ -172,29 +157,21 @@
 
             .content-image {
                 display: block;
-                margin: auto;
-                padding: 20px;
-                width: 240px;
-                height: 240px;
+                margin: 2vh auto;
+                width: 180px;
+                height: 180px;
             }
 
             .title-content {
                 width: 100%;
                 display: block;
                 text-align: center;
-                font-size: 1.3rem;
             }
             .price-likes-dead-container {
                 margin: 2vh 1vw;
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
+                justify-content: space-around;
                 flex-wrap: wrap;
-
-                > * {
-                    text-align: center;
-                }
-
                 .price-container {
                     flex-grow: 1;
                     display: flex;
@@ -215,37 +192,31 @@
                     align-items: center;
                     cursor: pointer;
                     img {
-                        width: 30px;
+                        width: 35px;
                     }
                     label {
                         font-size: 1 em;
                         margin-left: 5px;
                     }
-                    label::after {
-                        content: " likes";
-                    }
                 }
                 .dead-container {
                     flex-grow: 1;
-                    text-align: center;
-                    font-size: 0.7em;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     cursor: pointer;
+                    font-size: 0.5rem;
+
                     img {
-                        width: 20px;
-                        margin: 0 auto;
-                        display: block;
-                        text-align: center;
+                        width: 25px;
+                        margin-right: 1vw;
                     }
                     label {
-                        width: 100%;
-                        display: block;
-                        font-size: 0.5em;
-                        text-align: center;
+                        font-size: 0.5rem;
                     }
                 }
                 .vendor {
-                    flex-grow: 1;
-                    font-size: 1rem;
+                    display: none;
                 }
             }
             .link-container {
@@ -271,6 +242,7 @@
             }
             .details {
                 width: 100%;
+                min-height: 40vh;
                 padding: 2vw;
                 display: block;
                 text-align: center;
@@ -288,8 +260,8 @@
 
     hr {
         display: block;
-        width: 95vw;
+        width: 90vw;
         margin: 0;
-        margin-left: 2.5vw;
+        margin-left: 5vw;
     }
 }

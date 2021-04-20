@@ -4,6 +4,9 @@
 </head>
 <!--/include head--> 
 <body>
+    <div id="overlay" class="hidden">
+        <div id="overlay-content"></div>
+    </div>
 <!--include header-->
 <%-include('include/_header')%>
 <!--/include header-->   
@@ -11,14 +14,12 @@
             <h1><%= String(category).replace(/\./g, ' ').toUpperCase() %></h1>
             <div class="deals-container">
  
-                <%-include('include/_show-category-deal')%>
+                <%-include('include/_show-deals')%>
 
             </div>
     </main>
     <!--include footer-->
     <%-include('include/_footer')%> 
     <!--/include footer-->
-    <!-- script goes here -->
-    <script src="/js/categories.js"></script>
 </body>
 </html>

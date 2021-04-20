@@ -1,26 +1,42 @@
-/**
-    UNIVERSAL STYLES
-*/
 @use 'colors' as colors;
 
-main {
-    margin: 0;
-    overflow: hidden;
-    h1 {
-        width: 100vw;
-        overflow: hidden;
-    }
+.deadDeal {
+    display: none;
 }
-
-#overlay {
-    width: 100vw;
-    overflow: hidden;
+.deadDeal + hr{
+    display:none;
 }
-
 /**
     DESKTOP STYLES
 */
 @media only screen and (min-width: 576px) {
+    main {
+        margin: 0;
+        overflow: hidden;
+        h1 {
+            width: 100vw;
+            overflow: hidden;
+        }
+    }
+
+    #overlay {
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    main {
+        margin: 0;
+        overflow: hidden;
+        h1 {
+            width: 100vw;
+            overflow: hidden;
+        }
+    }
+
+    #overlay {
+        width: 100vw;
+        overflow: hidden;
+    }
     .deals-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -30,60 +46,25 @@ main {
         justify-content: space-between;
         text-align: center;
         min-height: 75vh;
+        cursor: pointer;
     }
     @media only screen and (max-width: 650px) {
         .deals-container {
             grid-template-columns: repeat(2, minmax(150px, 1fr));
         }
     }
+
     .deal-content {
-        width:180px;
+        width: 180px;
         max-height: 350px;
-        cursor: pointer;
 
         * + * {
-            text-align: initial;
+            text-align: center;
         }
         .content-image {
             width: 180px;
             height: 180px;
         }
-
-        .price-likes-container {
-            overflow: hidden;
-            margin: auto;
-            text-align: center;
-            .price-container {
-                display: flex;
-                justify-content: center;
-                overflow-x: scroll;
-
-                .money-one {
-                    font-size: 1.5em;
-                }
-                .money-two {
-                    font-size: 1em;
-                    margin-left: 5px;
-                    color: colors.$strikeColor;
-                }
-            }
-
-            .likes-container {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-
-                img {
-                    width: 25px;
-                }
-                label {
-                    margin-left: 5px;
-                    font-size: 0.8 em;
-                }
-            }
-        }
-
         .title-content {
             overflow: hidden;
             max-height: 130px;
@@ -94,14 +75,56 @@ main {
                 margin-bottom: 0;
             }
         }
-        .details,
-        .link,
+
+        .price-container {
+            display: flex;
+            justify-content: center;
+            overflow-x: scroll;
+
+            .money-one {
+                font-size: 1.5em;
+            }
+            .money-two {
+                font-size: 1em;
+                margin-left: 5px;
+                color: colors.$strikeColor;
+            }
+        }
+
+        .likes-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            img {
+                width: 25px;
+            }
+            label {
+                margin-left: 5px;
+                font-size: 0.8 em;
+            }
+        }
+
         .dead-container {
             display: none;
         }
+
+        .vendor {
+            width: 100%;
+            font-size: 0.7rem;
+            margin: auto;
+        }
+        .details,
+        .link {
+            display: none;
+        }
+    }
+    hr {
+        display: none;
     }
 
-    //#overlay
+    // SHOW OVERLAY
     #overlay {
         position: fixed;
         width: 100vw;
@@ -121,49 +144,43 @@ main {
             overflow: scroll;
             cursor: default;
 
-            .overlay-row {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                align-items: center;
-                > * {
-                    padding: 1vw;
-                }
-            }
-
             .deal-content {
-                width:initial;
-            }
-            .content-image {
-                width: 220px;
-                height: 220px;
-                align-self: center;
-            }
+                width: 100%;
+                max-height: initial;
 
-            .title-content {
-                width: 50%;
-                flex-grow: 2;
-                
-                .title-text {
-                }
-            }
-            
-            .price-likes-dead-container{
-                
-                display:flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-                width:100%;
-
-                .price-likes-container {
-                    flex-grow: 2;
+                .grid-row {
                     display: flex;
-                    justify-content: space-around;
-                    
+                    align-items: center;
+                    justify-content: center;
+                    align-items: center;
+                    > * {
+                        padding: 1vw;
+                    }
+                }
+
+                .content-image {
+                    width: 220px;
+                    height: 220px;
+                    justify-self: center;
+                }
+
+                .title-content {
+                    width: 50%;
+                    flex-grow: 2;
+                    text-align: center;
+                }
+
+                .price-likes-dead-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    width: 100%;
+
                     .price-container {
+                        flex-grow:1;
                         display: flex;
                         align-items: flex-start;
-                        
+
                         .money-one {
                             font-size: 1.5em;
                         }
@@ -172,14 +189,15 @@ main {
                             color: colors.$strikeColor;
                         }
                     }
-                    
+
                     .likes-container {
+                        flex-grow:1;
                         display: flex;
                         align-items: center;
-                        
+
                         img {
                             width: 2vw;
-                            min-width:20px;
+                            min-width: 20px;
                         }
                         label {
                             font-size: 1 em;
@@ -189,285 +207,74 @@ main {
                             content: " likes";
                         }
                     }
-                }
-                .dead-container {
-                    display:inline-block;
-                    flex-grow: 1;
-                    text-align: center;
-                    font-size: 0.7em;
-                    cursor: pointer;
-                    img {
-                        width: 1.5vw;
-                        min-width:20px;
-                        margin: 0 auto;
-                        display: block;
-                        text-align: center;
-                    }
-                    label {
-                        width: 100%;
-                        display: block;
-                        font-size: 0.5em;
-                        text-align: center;
-                    }
-                }
-        }
-        .details,
-        .link{
-            display: inherit;
-        }
-        
-            .details {
-                margin-bottom: 10px;
-                background-color: inherit;
 
-                a {
-                    text-decoration: wavy;
-                    color: colors.$strikeColor;
+                    .dead-container {
+                        flex-grow:1;
+                        display: inline-block;
+                        flex-grow: 1;
+                        text-align: center;
+                        font-size: 0.7em;
+                        cursor: pointer;
+                        img {
+                            width: 1.5vw;
+                            min-width: 20px;
+                            margin: 0 auto;
+                            display: block;
+                            text-align: center;
+                        }
+                        label {
+                            width: 100%;
+                            display: block;
+                            font-size: 0.5em;
+                            text-align: center;
+                        }
+                    }
+                    .vendor {
+                        display: none;
+                    }
                 }
-            }
-            .link-container {
-                width:96%;
-                margin-left:2%;
-                height:5vh;
-                box-shadow: 0px 10px 14px -7px #276873;
-                background: linear-gradient(to bottom, #40e0d0 5%, #00a89a 100%);
-                background-color: #40e0d0;
-                border-radius: 50px;
-                font-weight: bold;
-                text-decoration: none;
-                text-shadow: 0px 1px 0px #3d768a;
-                display:flex;
-                align-items: center;
-                justify-content: center;
+
+                .details,
                 .link {
-                    color: white;
-                }
-            }
-        }
-    }
-    hr {
-        display: none;
-    }
-}
-/**
-    MOBILE STYLES
-*/
-@media only screen and (max-width: 575px) {
-    .deals-container {
-        display: inline-block;
-        width: 100vw;
-        margin: 0;
-        overflow: hidden;
-        text-align: center;
-        min-height: 0;
-        font-size: 1.1em;
-
-        .deal-content {
-            cursor: default;
-            display: block;
-            max-height: 200px;
-            cursor: pointer;
-
-            .overlay-row:not(.details) {
-                display: flex;
-            }
-
-            .content-image {
-                width: 25vw;
-                height: 25vw;
-                padding: 2vw;
-            }
-
-            .title-content {
-                width: 75vw;
-                padding: 2vw;
-                text-align: center;
-                overflow: hidden;
-
-                .title-text {
-                    max-height: 105px;
-                    overflow: scroll;
-                    margin-bottom: 0;
-                }
-            }
-
-            .price-likes-container {
-                display: flex;
-                width: 100vw;
-                justify-content: space-evenly;
-                margin: 1vh 0;
-                font-size: 0.8em;
-
-                .money-one {
-                    font-size: 1.5em;
-                }
-                .money-two {
-                    font-size: 1em;
-                    margin-left: 5px;
-                    color: colors.$strikeColor;
+                    display: inherit;
                 }
 
-                .price-container {
-                    display: flex;
-                    justify-content: center;
-                    overflow-x: scroll;
+                .details {
+                    margin-bottom: 10px;
+                    background-color: inherit;
+
+                    a {
+                        text-decoration: wavy;
+                        color: colors.$strikeColor;
+                    }
                 }
-                .likes-container {
+                .link-container {
+                    width: 96%;
+                    margin-left: 2%;
+                    height: 5vh;
+                    box-shadow: 0px 10px 14px -7px #276873;
+                    background: linear-gradient(to bottom, #40e0d0 5%, #00a89a 100%);
+                    background-color: #40e0d0;
+                    border-radius: 50px;
+                    font-weight: bold;
+                    text-decoration: none;
+                    text-shadow: 0px 1px 0px #3d768a;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    cursor: pointer;
-                    font-size: 0.7em;
-
-                    img {
-                        width: 25px;
-                    }
-                    label {
-                        margin-left: 5px;
-                        font-size: 0.8 em;
-                    }
-                }
-            }
-            .details,
-            .link,
-            .dead-container {
-                display: none;
-            }
-        }
-        hr {
-            display: block;
-            width: 90vw;
-            margin: 2vh 5vw;
-        }
-    }
-    .details {
-        display: none;
-    }
-    //overlay
-    #overlay {
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.95);
-        display: none;
-        z-index: 1;
-        padding: 60px 20px;
-
-        #overlay-content {
-            background-color: white;
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            overflow: scroll;
-            cursor: default;
-
-            .overlay-row {
-                display: block;
-                align-items: center;
-                > * {
-                    padding: 1vw;
-                }
-            }
-
-            .content-image {
-                display: block;
-                margin: auto;
-                width: 180px;
-                height: 180px;
-            }
-
-            .title-content {
-                width: 100%;
-                display: block;
-                text-align: center;
-            }
-            .price-likes-dead-container {
-                display: flex;
-                justify-content: space-evenly;
-                .price-likes-container {
-                    flex-grow: 2;
-                    display: flex;
-                    justify-content: space-around;
-                    .price-container {
-                        display: flex;
-                        justify-content: center;
-                        .money-one {
-                            font-size: 1.5em;
-                        }
-                        .money-two {
-                            font-size: 1em;
-                            color: colors.$strikeColor;
-                        }
-                    }
-
-                    .likes-container {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        img {
-                            width: 30px;
-                        }
-                        label {
-                            font-size: 1 em;
-                            margin-left: 5px;
-                        }
-                    }
-                }
-
-                .dead-container {
-                    flex-grow: 1;
-                    text-align: center;
-                    font-size: 0.7em;
-                    cursor: pointer;
-                    img {
-                        width: 20px;
-                        margin: 0 auto;
-                        display: block;
-                        text-align: center;
-                    }
-                    label {
+                    .link {
+                        color: white;
                         width: 100%;
-                        display: block;
-                        font-size: 0.5em;
-                        text-align: center;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                     }
                 }
-            }
-            .link-container {
-                width:96%;
-                margin-left:2%;
-                height:5vh;
-                box-shadow: 0px 10px 14px -7px #276873;
-                background: linear-gradient(to bottom, #40e0d0 5%, #00a89a 100%);
-                background-color: #40e0d0;
-                border-radius: 50px;
-                font-weight: bold;
-                text-decoration: none;
-                text-shadow: 0px 1px 0px #3d768a;
-                display:flex;
-                align-items: center;
-                justify-content: center;
-                .link {
-                    color: white;
-                }
-            }
-            .details {
-                width: 100%;
-                min-height:40vh;
-                display: block;
-                text-align: center;
-                a {
-                    text-decoration: wavy;
-                    color: colors.$strikeColor;
+                hr {
+                    display: none;
                 }
             }
         }
-    }
-    hr {
-        display: block;
-        width: 90vw;
-        margin-left: 5vw;
     }
 }
