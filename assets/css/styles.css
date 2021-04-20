@@ -24,6 +24,7 @@ body {
 }
 body * {
   box-sizing: inherit;
+  user-select: none;
 }
 body a {
   text-decoration: none;
