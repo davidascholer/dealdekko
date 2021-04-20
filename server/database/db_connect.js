@@ -27,9 +27,8 @@ exports.connect = () => {
             } else {      
                 console.log('Error creating connection: Error Code: '+err.code);
             }
-            console.log('Error creating connection in model');
+            console.log('Error creating connection. Full Error Details: '+err);
             this.disconnect();
-            connect();
             console.error(err);
         });
     // }
