@@ -7,8 +7,6 @@ const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const path = require('path');
 
-const PORT = require('./server/services/config').getPort() || 8080;
-
 //log request
 app.use(morgan('tiny'));
 
@@ -27,7 +25,7 @@ app.use(express.json({limit:'1mb'}))
 //load routers
 app.use('/',require('./server/routes/router'));
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
 });
- 
