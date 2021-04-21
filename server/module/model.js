@@ -20,9 +20,9 @@ const grabDbData = async () => {
                 const vendor = data[d].vendor;
                 const title = data[d].title;
                 const details = data[d].details;
-                if (data === 'slickdeals.net')
+                if (vendor === 'slickdeals.net')
                     delete data[d];
-                else if (title.includes('slickdeals') || title.includes(' SD '))
+                else if (title.includes('slickdeals') || title.includes(' SD ')||title==='undefined'||title===undefined)
                     delete data[d];
                 else if (details.includes('slickdeals') || details.includes('thanks'))
                     delete data[d];

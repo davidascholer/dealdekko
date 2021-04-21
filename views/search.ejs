@@ -1,14 +1,16 @@
 <!--include head-->
 <%-include('include/_head')%>
-    <link href="/css/category.css" rel="stylesheet" type="text/css" />
-    </head>
-    <!--/include head-->
-
-    <body>
-        <!--include header-->
-        <%-include('include/_header')%>
-            <!--/include header-->
-            <main class="margined">
+<link href="/css/category.css" rel="stylesheet" type="text/css" />
+</head>
+<!--/include head--> 
+<body>
+    <div id="overlay" class="hidden">
+        <div id="overlay-content"></div>
+    </div>
+<!--include header-->
+<%-include('include/_header')%>
+<!--/include header-->   
+    <main class="margined">
                 <h1>Search For: <%= String(search).toUpperCase() %>
                 </h1>
                 <div class="deals-container">
@@ -21,10 +23,7 @@
                 </div>
             </main>
             <!--include footer-->
-            <%-include('include/_footer')%>
-                <!--/include footer-->
-                <!-- script goes here -->
-                <script src="/js/categories.js"></script>
-    </body>
-
-    </html>
+            <%-include('include/_footer')%> 
+            <!--/include footer-->
+        </body>
+        </html>
