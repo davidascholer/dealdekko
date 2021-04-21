@@ -3,7 +3,7 @@
  */
 const { connection } = require('mongoose');
 const dbConnect = require('./../database/db_connect');
-
+const { filterData } = require('./helpers/filter_output');
 
 //  const queryString = 'SELECT vendor, price from deals WHERE vendor="amazon.com" LIMIT 10';
 
@@ -15,19 +15,7 @@ const grabDbData = async () => {
         await dbConnect.connect();
         console.log('Created connection in model');
         let data = await dbConnect.query(queryString);
-        for (let d in data) {
-            if (data[d]) {
-                const vendor = data[d].vendor;
-                const title = data[d].title;
-                const details = data[d].details;
-                if (vendor === 'slickdeals.net')
-                    delete data[d];
-                else if (title.includes('slickdeals') || title.includes(' SD ')||title==='undefined'||title===undefined)
-                    delete data[d];
-                else if (details.includes('slickdeals') || details.includes('thanks'))
-                    delete data[d];
-            }
-        }
+        data = filterData(data);
         return data;
     } catch (err) {
         console.log('Error creating connection in model. Err: ' + err);
@@ -51,6 +39,7 @@ const parseCategoryData = async cat => {
         await dbConnect.connect();
         let data = await dbConnect.query(queryString);
         dbConnect.disconnect();
+        data = filterData(data);
         return [data];
     } catch {
         parseCategoryData(cat);
@@ -71,7 +60,9 @@ const parseSearchData = async searchString => {
     try {
         await dbConnect.connect();
         let data = await dbConnect.query(queryString);
+        data = filterData(data);
         dbConnect.disconnect();
+
         return [data, decodedSearchString];
     } catch {
         parseSearchData(searchString);
