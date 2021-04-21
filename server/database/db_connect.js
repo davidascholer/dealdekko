@@ -11,7 +11,7 @@ exports.connect = () => {
         // }else{
 
         connection = mysql.createConnection(dbConfig); // Recreate the connection, since the old one cannot be reused.
-        console.log('Connection Created: Count: '+count++);
+        console.log('Connection Created: Count: ' + count++);
 
         connection.connect(err => {              // The server is either down
             resolve(connection);
@@ -23,26 +23,26 @@ exports.connect = () => {
             console.log('db error', err);
             if (err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
                 // lost from a server restart, dropped connection, etc.
-                console.error('PROTOCOL_CONNECTION_LOST : lost connection to server');                        
-            } else {      
-                console.log('Error creating connection: Error Code: '+err.code);
+                console.error('PROTOCOL_CONNECTION_LOST : lost connection to server');
+            } else {
+                console.log('Error creating connection: Error Code: ' + err.code);
             }
-            console.log('Error creating connection. Full Error Details: '+err);
+            console.log('Error creating connection. Full Error Details: ' + err);
             this.disconnect();
             console.error(err);
         });
-    // }
+        // }
     });
 }
- 
+
 
 exports.query = (q) => {
     return new Promise((resolve, reject) => {
         try {
             connection.query(q, function (err, result) {
                 if (err) console.log(err);
-                    resolve(result);
-                    reject(err);
+                resolve(result);
+                reject(err);
             });
         } catch (err) {
             console.error(err);
@@ -52,9 +52,10 @@ exports.query = (q) => {
     })
 }
 
- exports.disconnect = () => {
-    connection.end();
-    console.log('Connection Ended. Count: '+count--);
+exports.disconnect = () => {
+    if (connection.state === 'connected')
+        connection.end();
+    console.log('Connection Ended. Count: ' + count--);
     console.log("...Connection Closed")
 };
 

@@ -3,7 +3,12 @@
 */
 @use 'fonts';
 @use 'colors' as colors;
-
+::selection {
+    background: colors.$color; 
+  }
+*{
+    -webkit-tap-highlight-color: transparent;
+}
 body {
     box-sizing: border-box;
     font-family: kiwi, Helvetica, serif;
@@ -11,7 +16,6 @@ body {
 
     * {
         box-sizing: inherit;
-        user-select: none;
     }
 
     a {

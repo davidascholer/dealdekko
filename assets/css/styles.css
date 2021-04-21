@@ -17,6 +17,14 @@
 /**
     UNIVERSAL STYLES
 */
+::selection {
+  background: #00a89a;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   box-sizing: border-box;
   font-family: kiwi, Helvetica, serif;
@@ -24,7 +32,6 @@ body {
 }
 body * {
   box-sizing: inherit;
-  user-select: none;
 }
 body a {
   text-decoration: none;
