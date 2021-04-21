@@ -145,6 +145,7 @@
   #overlay #overlay-content {
     width: 100%;
     height: 100%;
+    padding: 20px;
     overflow: scroll;
     cursor: default;
   }
@@ -259,6 +260,7 @@
   #overlay #overlay-content .details a {
     text-decoration: wavy;
     color: #a62091;
+    padding: 0;
   }
   #overlay #overlay-content .details p {
     font-size: 0.85em;

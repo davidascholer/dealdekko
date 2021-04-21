@@ -216,7 +216,6 @@ body a {
     display: flex;
     justify-content: space-around;
     text-align: center;
-    margin-top: 10px;
   }
   footer #footer-container-bottom .logo-container {
     display: flex;
@@ -381,13 +380,13 @@ body a {
     text-align: center;
   }
   footer #footer-container-top a {
-    font-size: 0.7em;
+    font-size: 0.5em;
     margin: 3vw;
   }
   footer #footer-container-top #mobile-selection {
     display: flex;
     cursor: default;
-    font-size: 0.9em;
+    font-size: 0.7em;
     justify-content: space-evenly;
     align-items: center;
   }
@@ -427,7 +426,6 @@ body a {
     display: flex;
     justify-content: space-around;
     text-align: center;
-    margin-top: 10px;
     padding: 10px;
   }
   footer #footer-container-bottom .logo-container {
@@ -521,6 +519,7 @@ body a {
   }
 }
 .hidefootersection {
+  visibility: hidden !important;
   animation: hidefootersection 0.2s linear forwards;
 }
 

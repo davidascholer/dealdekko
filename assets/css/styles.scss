@@ -210,7 +210,6 @@ body {
             display: flex;
             justify-content: space-around;
             text-align: center;
-            margin-top: 10px;
 
             .logo-container {
                 display: flex;
@@ -392,14 +391,14 @@ body {
             text-align: center;
 
             a {
-                font-size: 0.7em;
+                font-size: 0.5em;
                 margin: 3vw;
             }
 
             #mobile-selection {
                 display: flex;
                 cursor: default;
-                font-size: 0.9em;
+                font-size: 0.7em;
                 justify-content: space-evenly;
                 align-items: center;
                 h2 {
@@ -441,7 +440,6 @@ body {
             display: flex;
             justify-content: space-around;
             text-align: center;
-            margin-top: 10px;
             padding: 10px;
 
             .logo-container {
@@ -535,6 +533,7 @@ body {
     }
 }
 .hidefootersection {
+    visibility: hidden !important;
     animation: hidefootersection 0.2s linear forwards;
 }
 @keyframes hidefootersection {
