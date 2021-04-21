@@ -234,6 +234,7 @@
   #overlay #overlay-content .link-container {
     width: 96%;
     margin-left: 2%;
+    margin-bottom: 20px;
     height: 5vh;
     box-shadow: 0px 10px 14px -7px #276873;
     background: linear-gradient(to bottom, #40e0d0 5%, #00a89a 100%);
@@ -256,6 +257,7 @@
     padding: 2vw;
     display: block;
     text-align: center;
+    font-size: 0.8em;
   }
   #overlay #overlay-content .details a {
     text-decoration: wavy;

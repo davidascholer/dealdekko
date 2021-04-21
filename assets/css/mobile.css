@@ -229,6 +229,7 @@
     padding: 2vw;
     display: block;
     text-align: center;
+    font-size: 0.8em;
   }
   #overlay #overlay-content .details a {
     text-decoration: wavy;
