@@ -40,12 +40,11 @@ exports.query = (q) => {
     return new Promise((resolve, reject) => {
         try {
             connection.query(q, function (err, result) {
-                if (err) console.log(err);
                 resolve(result);
-                reject(err);
             });
         } catch (err) {
             console.error(err);
+            reject(err);
             this.query(q);
             //Common. Caused by server drops. Retry query.
         }

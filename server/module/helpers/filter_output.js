@@ -17,3 +17,5 @@ const filterData = data => {
     }
     return data;
 }
+
+module.exports.filterData = filterData;
