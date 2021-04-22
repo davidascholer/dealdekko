@@ -1,27 +1,27 @@
 const filterData = data => {
     for (let d in data) {
         if (data[d]) {
-            if (data[d].vendor.toLowerCase() === 'slickdeals.net'){
+            if (data[d].vendor === 'slickdeals.net'){
                 delete data[d];
                 continue;
             }
-            else if (data[d].title.toLowerCase().includes('slickdeals') || data[d].title.toLowerCase().includes(' SD ') || data[d].toLowerCase().title === 'undefined' || data[d].title === undefined){
+            else if (data[d].title === 'undefined' || data[d].title === undefined || data[d].title.toLowerCase().includes('slickdeals') || data[d].title.toLowerCase().includes(' SD ')){
                 delete data[d];
                 continue;
             }
-            else if (data[d].details.toLowerCase().includes('slickdeals') || data[d].details.toLowerCase().includes('thanks')){
+            else if (data[d].details.includes('slickdeals') || data[d].details.includes('thanks')){
                 delete data[d];
                 continue;
             }
-            else if (data[d].price === undefined || data[d].price.toLowerCase().includes('undefined')){
+            else if (data[d].price === undefined || data[d].price.includes('undefined')){
                 delete data[d];
                 continue;
             }
 
-            if (data[d].vendor.toLowerCase() === 'amazon.com') {
+            if (data[d].vendor === 'amazon.com') {
                 data[d].details = amazon(data[d].details);
             }
-            else if (data[d].vendor.toLowerCase() === 'ebay.com') {
+            else if (data[d].vendor === 'ebay.com') {
                 data[d].details = ebay(data[d].details);
             }
         }
