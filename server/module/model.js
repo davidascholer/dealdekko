@@ -12,14 +12,15 @@ const grabDbData = async () => {
     const queryString = 'SELECT * from deals ORDER BY date DESC LIMIT 200';
 
     try {
-        await dbConnect.connect();
+        let dbConnection = await dbConnect.connect();
         console.log('Created connection in model');
         let data = await dbConnect.query(queryString);
         data = filterData(data);
+        dbConnect.disconnect(dbConnection);
         return data;
     } catch (err) {
         console.log('Error creating connection in model. Err: ' + err);
-        dbConnect.disconnect();
+        // dbConnect.disconnect();
         grabDbData();
     }
 };
@@ -36,9 +37,9 @@ const parseCategoryData = async cat => {
 
     const queryString = `SELECT * from deals WHERE category LIKE ${catString} ORDER BY date DESC LIMIT 300`;
     try {
-        await dbConnect.connect();
+        let dbConnection = await dbConnect.connect();
         let data = await dbConnect.query(queryString);
-        dbConnect.disconnect();
+        dbConnect.disconnect(dbConnection);
         data = filterData(data);
         return [data];
     } catch {
@@ -58,10 +59,10 @@ const parseSearchData = async searchString => {
 
     const queryString = `SELECT * from deals WHERE details LIKE '${querySearchString}' ORDER BY date DESC LIMIT 50`;
     try {
-        await dbConnect.connect();
+        let dbConnection = await dbConnect.connect();
         let data = await dbConnect.query(queryString);
         data = filterData(data);
-        dbConnect.disconnect();
+        dbConnect.disconnect(dbConnection);
 
         return [data, decodedSearchString];
     } catch {

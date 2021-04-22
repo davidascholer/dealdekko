@@ -2,41 +2,52 @@ const mysql = require('mysql');
 
 const dbConfig = require('./../services/config').getDBConfig();
 
+//Create a reuseable connection.
 let connection;
-let count = 0;
-exports.connect = () => {
-    return new Promise((resolve, reject) => {
-        // if(connection.state==='connected'){
-        //     disconnect();
-        // }else{
+//For debugging only. Create an id so we can track which connections have opened and which have closed.
+let connectionID = '';
+//For debugging only. Create a count so we make sure only one connections is being made at a time.
+let connectionCount = 0;
 
-        connection = mysql.createConnection(dbConfig); // Recreate the connection, since the old one cannot be reused.
-        console.log('Connection Created: Count: ' + count++);
+//Create a database connection if one doesnt exist.
+connect = () => {
+    if (connection && connection.status === 'connected') {
+        console.log(`Connection with ID:${connectionID} and count: ${connectionCount} already connected.`);
+    } else {
 
-        connection.connect(err => {              // The server is either down
-            resolve(connection);
-            reject(err);                      // to avoid a hot loop, and to allow our node script to
-        });                                     // process asynchronous requests in the meantime.
+        return new Promise((resolve, reject) => {
 
-        // If you're also serving http, display a 503 error.
-        connection.on('error', err => {
-            console.log('db error', err);
-            if (err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
-                // lost from a server restart, dropped connection, etc.
-                console.error('PROTOCOL_CONNECTION_LOST : lost connection to server');
-            } else {
-                console.log('Error creating connection: Error Code: ' + err.code);
-            }
-            console.log('Error creating connection. Full Error Details: ' + err);
-            this.disconnect();
-            console.error(err);
+            connection = mysql.createConnection(dbConfig); // Recreate the connection, since the old one cannot be reused.
+
+            //Server may be down. 
+            connection.connect(err => {
+                resolve(connection);
+                connectionID = makeid(5);
+                console.log(`Connection with ID:${connectionID} and count:${++connectionCount} created.`);
+            });
+
+
+            // If you're also serving http, display a 503 error.
+            connection.on('error', err => {
+                console.log('db error', err);
+                if (err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+                    // lost from a server restart, dropped connection, etc.
+                    console.error('PROTOCOL_CONNECTION_LOST : lost connection to server');
+                } else {
+                    console.log('Error creating connection: Error Code: ' + err.code);
+                }
+                console.log('Error creating connection. Full Error Details: ' + err);
+                this.disconnect(connection);
+                console.error(err);
+                reject(err);
+            });
         });
-        // }
-    });
+    }
+
 }
 
 
-exports.query = (q) => {
+query = (q) => {
     return new Promise((resolve, reject) => {
         try {
             connection.query(q, function (err, result) {
@@ -45,16 +56,34 @@ exports.query = (q) => {
         } catch (err) {
             console.error(err);
             reject(err);
-            this.query(q);
             //Common. Caused by server drops. Retry query.
+            this.query(q);
         }
+
     })
 }
 
-exports.disconnect = () => {
-    if (connection.state === 'connected')
-        connection.end();
-    console.log('Connection Ended. Count: ' + count--);
-    console.log("...Connection Closed")
+disconnect = dbConnection => {
+    if (dbConnection.state !== 'disconnected') {
+        dbConnection.end();
+        console.log(`Connection with ID:${connectionID} and connection count:${--connectionCount} ended.`);
+        connectionID = '';
+    }else{
+        console.log(dbConnection.state);
+    }
 };
 
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() *
+            charactersLength)));
+    }
+    return result.join('');
+}
+
+module.exports.connect = connect;
+module.exports.query = query;
+module.exports.disconnect = disconnect;
