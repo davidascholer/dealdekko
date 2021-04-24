@@ -9,7 +9,7 @@ const { filterData } = require('./helpers/filter_output');
 
 const grabDbData = async () => {
 
-    const queryString = 'SELECT * from deals ORDER BY date DESC LIMIT 200';
+    const queryString = 'SELECT * FROM deals WHERE expired <> 1 AND dead < 10 AND deleted <> 1 ORDER BY date DESC LIMIT 200';
 
     try {
         let dbConnection = await dbConnect.connect();
