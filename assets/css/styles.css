@@ -53,7 +53,7 @@ body a {
   }
 
   header {
-    min-width: 600px;
+    min-width: 576px;
     margin-top: 1vh;
     overflow: hidden;
   }
@@ -175,7 +175,7 @@ body a {
 @media only screen and (min-width: 576px) {
   main {
     font-size: 0.8em;
-    min-width: 600px;
+    min-width: 576px;
     min-height: 85vh;
   }
 }
@@ -183,7 +183,7 @@ body a {
   footer {
     background-color: #00a89a;
     width: 100vw;
-    min-width: 600px;
+    min-width: 576px;
     margin-top: 20px;
   }
   footer #footer-container-top {

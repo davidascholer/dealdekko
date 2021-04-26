@@ -45,18 +45,12 @@
     grid-column-gap: 20px;
     grid-row-gap: 65px;
     justify-content: space-between;
+    justify-items: center;
     text-align: center;
     min-height: 75vh;
     cursor: pointer;
   }
-}
-@media only screen and (min-width: 576px) and (max-width: 650px) {
-  .deals-container {
-    width: 90vw;
-    grid-template-columns: repeat(2, minmax(200px, 1fr));
-  }
-}
-@media only screen and (min-width: 576px) {
+
   .deal-content {
     width: 180px;
     max-height: 350px;
@@ -115,13 +109,11 @@
 .deal-content .link {
     display: none;
   }
-}
-@media only screen and (min-width: 576px) {
+
   hr {
     display: none;
   }
-}
-@media only screen and (min-width: 576px) {
+
   #overlay {
     position: fixed;
     width: 100vw;

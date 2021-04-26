@@ -29,7 +29,7 @@ body {
 */
 @media only screen and (min-width: 576px) {
     $viewWidth: 90vw;
-    $minWidth: 600px;
+    $minWidth: 576px;
 
     body {
         > :not(.short_banner):not(footer) {
