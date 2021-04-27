@@ -18,10 +18,24 @@
         searchDeals(searchBox);
     });
 
-    const showCat = document.getElementsByClassName('show-cat-mobile');
-    showCat[0].addEventListener('click', function () {
+    //Show drop down list of desktop categories.
+    const showCat = document.getElementById('allDealsOption');
+    showCat.addEventListener('click', function () {
         const cat = document.getElementsByClassName('categories');
-        const innerTextSpan = this.getElementsByTagName('span');
+        if (cat[0].classList.contains('show')) {
+            cat[0].classList.remove('show');
+            cat[0].classList.add('unshow');
+        }
+        else {
+            cat[0].classList.remove('unshow');
+            cat[0].classList.add('show');
+        }
+    })
+
+    //Show drop down list of mobile categories.
+    const showCatMobile = document.getElementsByClassName('show-cat-mobile');
+    showCatMobile[0].addEventListener('click', function () {
+        const cat = document.getElementsByClassName('categories');
         if (cat[0].classList.contains('show')) {
             cat[0].classList.remove('show');
             cat[0].classList.add('unshow');
@@ -190,5 +204,3 @@ const putRequest = (type, id) => {
     }
     fetch('api/' + type + '/' + id, options);
 }
-
-

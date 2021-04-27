@@ -30,7 +30,7 @@
     overflow: hidden;
   }
   .deals-container .deal-content > * {
-    margin: auto 15px;
+    margin-right: 10px;
   }
   .deals-container .deal-content .content-image {
     width: 25vw;
