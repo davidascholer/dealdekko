@@ -511,7 +511,7 @@ body {
 @media only screen and (min-width: 601px) {
     @keyframes show {
         from {
-            max-height: 0px;
+            max-height: 30px;
         }
         to {
             max-height: 2000px;
@@ -546,27 +546,42 @@ body {
     }
 }
 
+
 .showfootersection {
-    visibility: visible !important;
     animation: showfootersection 0.2s linear forwards;
+    visibility: visible !important;
 }
 @keyframes showfootersection {
-    from {
+    0% {
         max-height: 0;
+        visibility: hidden !important;
+
     }
-    to {
+    10% {
+        visibility: visible !important;
+    }
+    100% {
         max-height: 10vh;
+        visibility: visible !important;
     }
 }
+
 .hidefootersection {
-    visibility: hidden !important;
     animation: hidefootersection 0.2s linear forwards;
+    visibility: hidden !important;
 }
 @keyframes hidefootersection {
-    from {
+    0% {
         max-height: 10vh;
+        visibility: visible !important;
     }
-    to {
+    10% {
+        visibility: hidden !important;
+        
+    }
+    100% {
         max-height: 0;
+        visibility: hidden !important;
+
     }
 }

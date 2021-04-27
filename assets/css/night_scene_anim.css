@@ -64,108 +64,36 @@
 }
 @keyframes sailRight {
   0% {
-    transform: translate(-80vw, 0);
+    transform: translate(-20vw, 0);
   }
   25% {
-    transform: translate(-40vw, 8px);
+    transform: translate(-10vw, 8px);
   }
   50% {
     transform: translate(0vw, 0);
   }
   75% {
-    transform: translate(40vw, 8px);
+    transform: translate(10vw, 8px);
   }
   100% {
-    transform: translate(80vw, 0);
+    transform: translate(20vw, 0);
   }
 }
 @keyframes sailLeft {
   0% {
-    transform: translate(80vw, 0);
+    transform: translate(20vw, 0);
   }
   25% {
-    transform: translate(40vw, 8px);
+    transform: translate(10vw, 8px);
   }
   50% {
     transform: translate(0vw, 0);
   }
   75% {
-    transform: translate(-40vw, 8px);
+    transform: translate(-10vw, 8px);
   }
   100% {
-    transform: translate(-80vw, 0);
-  }
-}
-@media only screen and (max-width: 575px) {
-  @keyframes sailRight {
-    0% {
-      transform: translate(-140vw, 0);
-    }
-    25% {
-      transform: translate(-70vw, 8px);
-    }
-    50% {
-      transform: translate(0vw, 0);
-    }
-    75% {
-      transform: translate(70vw, 8px);
-    }
-    100% {
-      transform: translate(140vw, 0);
-    }
-  }
-  @keyframes sailLeft {
-    0% {
-      transform: translate(140vw, 0);
-    }
-    25% {
-      transform: translate(70vw, 8px);
-    }
-    50% {
-      transform: translate(0vw, 0);
-    }
-    75% {
-      transform: translate(-70vw, 8px);
-    }
-    100% {
-      transform: translate(-140vw, 0);
-    }
-  }
-}
-@media only screen and (min-width: 2000px) {
-  @keyframes sailRight {
-    0% {
-      transform: translate(-26vw, 0);
-    }
-    25% {
-      transform: translate(-13vw, 8px);
-    }
-    50% {
-      transform: translate(0vw, 0);
-    }
-    75% {
-      transform: translate(13vw, 8px);
-    }
-    100% {
-      transform: translate(26vw, 0);
-    }
-  }
-  @keyframes sailLeft {
-    0% {
-      transform: translate(26vw, 0);
-    }
-    25% {
-      transform: translate(13vw, 8px);
-    }
-    50% {
-      transform: translate(0vw, 0);
-    }
-    75% {
-      transform: translate(-13vw, 8px);
-    }
-    100% {
-      transform: translate(-26vw, 0);
-    }
+    transform: translate(-20vw, 0);
   }
 }
 

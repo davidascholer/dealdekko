@@ -1,5 +1,12 @@
 
 (function () {
+    //Reload the page when screen size changes from mobile to desktop and vice versa.
+    let windowWidth = (window.innerWidth > 600) ? 1 : 0;
+    window.addEventListener('resize', function () {
+        let tempWidth = (window.innerWidth > 600) ? 1 : 0;
+        if (tempWidth !== windowWidth)
+        window.location.href = window.location.href;
+    });
 
     //Sets a random plant every time the user refreshes the page. For fun.
     const NUMBER_OF_PLANTS = 6;
@@ -64,8 +71,8 @@
     });
 
     window.addEventListener('popstate', (event) => {
-            overlayContent.innerHTML = '';
-            overlay.style.display = 'none';
+        overlayContent.innerHTML = '';
+        overlay.style.display = 'none';
     });
 
     const dealViews = document.getElementsByClassName('deal-content');
@@ -77,7 +84,7 @@
             overlay.style.display = 'block';
             overlayContent.innerHTML = htmlContent;
 
-            history.pushState({state:null}, '');
+            history.pushState({ state: null }, '');
         });
     }
 
@@ -122,7 +129,7 @@ function addDead(event, elemID) {
 }
 
 //Stop propagation on text so users can click and copy.
-function detailsClicked(event){
+function detailsClicked(event) {
     event.stopPropagation();
 }
 
