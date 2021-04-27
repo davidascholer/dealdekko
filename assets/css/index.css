@@ -74,7 +74,6 @@
   .deal-content .price-container {
     display: flex;
     justify-content: center;
-    overflow-x: scroll;
   }
   .deal-content .price-container .money-one {
     font-size: 1.5em;
