@@ -27,7 +27,7 @@ body {
 /**
     DESKTOP STYLES
 */
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 601px) {
     $viewWidth: 90vw;
     $minWidth: 576px;
 
@@ -236,7 +236,7 @@ body {
 /**
     MOBILE STYLES
 */
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 600px) {
     $mobileHeight: 8vh;
 
     body {

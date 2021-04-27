@@ -106,6 +106,11 @@ function addDead(event, elemID) {
     putRequest('dead', elemID);
 }
 
+//Stop propagation on text so users can click and copy.
+function detailsClicked(event){
+    event.stopPropagation();
+}
+
 const searchDeals = obj => {
     const input = obj.value;
     const searchBox = document.getElementById('searchbox');

@@ -9,7 +9,7 @@
 /**
     DESKTOP STYLES
 */
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 600px) {
     main {
         margin: 0;
         overflow: hidden;
@@ -105,7 +105,9 @@
         .dead-container {
             display: none;
         }
-
+        .date-container{
+            display:none;
+        }
         .vendor {
             width: 100%;
             font-size: 0.7rem;

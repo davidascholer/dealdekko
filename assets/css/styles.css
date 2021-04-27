@@ -41,7 +41,7 @@ body a {
 /**
     DESKTOP STYLES
 */
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 601px) {
   body > :not(.short_banner):not(footer) {
     margin: auto;
     margin-left: 100vw-90vw/2;
@@ -97,13 +97,13 @@ body a {
     width: 3.2vw;
   }
 }
-@media only screen and (min-width: 576px) and (max-width: 1600px) {
+@media only screen and (min-width: 601px) and (max-width: 1600px) {
   header .header-top .header-top-right #header_plant {
     margin-right: 2vw;
     width: 4.5vw;
   }
 }
-@media only screen and (min-width: 576px) and (max-width: 1000px) {
+@media only screen and (min-width: 601px) and (max-width: 1000px) {
   header .header-top .header-top-right img {
     display: inline-block;
   }
@@ -111,17 +111,17 @@ body a {
     display: none;
   }
 }
-@media only screen and (min-width: 576px) and (max-width: 850px) {
+@media only screen and (min-width: 601px) and (max-width: 850px) {
   header .header-top .header-top-right img {
     display: none;
   }
 }
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 601px) {
   header hr {
     height: 1px;
   }
 }
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 601px) {
   header .show-cat-mobile {
     font-family: amatic, Helvetica, serif;
     display: none;
@@ -130,7 +130,7 @@ body a {
     cursor: default;
   }
 }
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 601px) {
   header .categories {
     width: 90vw;
     display: flex;
@@ -155,7 +155,7 @@ body a {
     flex-shrink: 0;
   }
 }
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 601px) {
   .short_banner {
     width: 100vw;
     margin-top: 1vh;
@@ -166,20 +166,20 @@ body a {
     padding: 5px;
   }
 }
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 601px) {
   .banner {
     min-width: 90vw;
     overflow: hidden;
   }
 }
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 601px) {
   main {
     font-size: 0.8em;
     min-width: 576px;
     min-height: 85vh;
   }
 }
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 601px) {
   footer {
     background-color: #00a89a;
     width: 100vw;
@@ -239,7 +239,7 @@ body a {
 /**
     MOBILE STYLES
 */
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 600px) {
   body > :not(.short_banner):not(footer) {
     margin: 0;
     margin-left: 0;

@@ -9,7 +9,7 @@
 /**
     DESKTOP STYLES
 */
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 600px) {
   main {
     margin: 0;
     overflow: hidden;
@@ -98,6 +98,9 @@
     font-size: 0.8 em;
   }
   .deal-content .dead-container {
+    display: none;
+  }
+  .deal-content .date-container {
     display: none;
   }
   .deal-content .vendor {

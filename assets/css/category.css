@@ -1,7 +1,7 @@
 /**
     DESKTOP STYLES
 */
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 601px) {
   main {
     margin: 0;
     overflow: hidden;
@@ -30,10 +30,14 @@
     overflow: hidden;
     cursor: pointer;
   }
+  .deals-container > * {
+    margin: inherit 5px;
+  }
   .deals-container .deal-content {
     min-width: 320px;
-    min-height: 25vw;
     padding: 0 10px;
+    height: 25vw;
+    max-height: 220px;
     overflow: visible;
   }
   .deals-container .deal-content .content-image {
@@ -46,7 +50,7 @@
   }
   .deals-container .deal-content .title-content {
     padding: 10px;
-    overflow: hidden;
+    overflow: scroll;
   }
   .deals-container .deal-content .title-content .title-text {
     overflow: scroll;
@@ -95,6 +99,14 @@
   .deals-container .deal-content .price-likes-dead-container .vendor {
     flex-grow: 1;
     font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .deals-container .deal-content .price-likes-dead-container .date-container {
+    display: flex;
+    justify-items: center;
+    align-items: center;
   }
   .deals-container .deal-content .link {
     display: none;
@@ -114,19 +126,22 @@
   .deals-container .deadDeal .dead-container {
     flex-grow: 1;
     display: flex !important;
+    justify-items: center;
     align-items: center;
     cursor: pointer;
     font-size: 0.7rem;
   }
   .deals-container .deadDeal .dead-container img {
     width: 25px;
-    margin-right: 1vw;
+    margin-left: auto;
+    margin-right: 10px;
   }
   .deals-container .deadDeal .dead-container label {
     font-size: 0.7rem;
+    margin-right: auto;
   }
   .deals-container .deadDeal .vendor {
-    display: none;
+    display: none !important;
   }
 
   #overlay {
@@ -228,6 +243,9 @@
   #overlay #overlay-content .price-likes-dead-container .vendor {
     flex-grow: 1;
     font-size: 1rem;
+  }
+  #overlay #overlay-content .price-likes-dead-container .date-container {
+    display: none;
   }
   #overlay #overlay-content .link-container {
     width: 96%;

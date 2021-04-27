@@ -3,7 +3,7 @@
 /**
     DESKTOP STYLES
 */
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 601px) {
     main {
         margin: 0;
         overflow: hidden;
@@ -30,11 +30,15 @@
         margin: 0;
         overflow: hidden;
         cursor: pointer;
+        >*{
+            margin: inherit 5px;
+        }
 
         .deal-content {
             min-width: 320px;
-            min-height: 25vw;
             padding: 0 10px;
+            height: 25vw;
+            max-height: 220px;
             overflow: visible;
 
             .content-image {
@@ -48,7 +52,7 @@
 
             .title-content {
                 padding: 10px;
-                overflow: hidden;
+                overflow: scroll;
 
                 .title-text {
                     overflow: scroll;
@@ -102,6 +106,14 @@
                 .vendor {
                     flex-grow: 1;
                     font-size: 1rem;
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .date-container{
+                    display:flex;
+                    justify-items:center;
+                    align-items:center;
                 }
             }
             .link {
@@ -124,20 +136,23 @@
             .dead-container {
                 flex-grow: 1;
                 display: flex !important;
+                justify-items: center;
                 align-items: center;
                 cursor: pointer;
                 font-size: 0.7rem;
 
                 img {
                     width: 25px;
-                    margin-right: 1vw;
+                    margin-left:auto;
+                    margin-right:10px;
                 }
                 label {
                     font-size: 0.7rem;
+                    margin-right:auto;
                 }
             }
             .vendor {
-                display: none;
+                display: none !important;
             }
         }
     }
@@ -245,6 +260,9 @@
                 .vendor {
                     flex-grow: 1;
                     font-size: 1rem;
+                }
+                .date-container{
+                    display:none;
                 }
             }
             .link-container {

@@ -1,7 +1,7 @@
 /**
     MOBILE STYLES
 */
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 600px) {
   main {
     margin: 0;
     overflow: hidden;
@@ -26,9 +26,11 @@
   .deals-container .deal-content {
     min-width: 320px;
     min-height: 120px;
-    height: 25vw;
     padding: 0 10px;
-    overflow: visible;
+    overflow: hidden;
+  }
+  .deals-container .deal-content > * {
+    margin: auto 15px;
   }
   .deals-container .deal-content .content-image {
     width: 25vw;
@@ -71,13 +73,12 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 0.5rem;
   }
   .deals-container .deal-content .price-likes-dead-container .likes-container img {
     width: 25px;
   }
   .deals-container .deal-content .price-likes-dead-container .likes-container label {
-    font-size: 0.5rem;
+    font-size: 0.7rem;
   }
   .deals-container .deal-content .price-likes-dead-container .dead-container {
     display: none;
@@ -85,6 +86,15 @@
   .deals-container .deal-content .price-likes-dead-container .vendor {
     flex-grow: 1;
     font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+  }
+  .deals-container .deal-content .date-container {
+    flex-grow: 1;
+    display: flex;
+    justify-items: center;
+    align-items: center;
   }
   .deals-container .deal-content .link {
     display: none;
@@ -113,7 +123,10 @@
     font-size: 0.5rem;
   }
   .deals-container .deadDeal .vendor {
-    display: none;
+    display: none !important;
+  }
+  .deals-container .deadDeal .date-container {
+    display: none !important;
   }
 
   #overlay {
@@ -199,6 +212,9 @@
   }
   #overlay #overlay-content .price-likes-dead-container .dead-container label {
     font-size: 0.5rem;
+  }
+  #overlay #overlay-content .price-likes-dead-container .date-container {
+    display: none;
   }
   #overlay #overlay-content .price-likes-dead-container .vendor {
     display: none;
