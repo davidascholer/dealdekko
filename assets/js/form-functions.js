@@ -1,8 +1,5 @@
 
 (function () {
-    //Simple redirect to force SSL
-    if (location.protocol === "http")
-        location.replace("https://dealdekko.com");
 
     //Sets a random plant every time the user refreshes the page. For fun.
     const NUMBER_OF_PLANTS = 6;
