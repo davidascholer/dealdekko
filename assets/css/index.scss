@@ -9,7 +9,7 @@
 /**
     DESKTOP STYLES
 */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 601px) {
     main {
         margin: 0;
         overflow: hidden;
@@ -106,6 +106,9 @@
         }
         .date-container{
             display:none;
+        }
+        @media screen {
+            
         }
         .vendor {
             width: 100%;
@@ -278,4 +281,9 @@
             }
         }
     }
+}
+@media only screen and (max-width: 600px) {
+.date-container{
+    display:none !important;
+}
 }

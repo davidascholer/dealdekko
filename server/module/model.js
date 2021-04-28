@@ -15,6 +15,7 @@ const grabDbData = async () => {
         let dbConnection = await dbConnect.connect();
         console.log('Created connection in model');
         let data = await dbConnect.query(queryString);
+        console.log(data.length);
         data = filterData(data);
         dbConnect.disconnect(dbConnection);
         return data;
