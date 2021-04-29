@@ -32,7 +32,7 @@ body {
     $minWidth: 576px;
 
     body {
-        > :not(.short_banner):not(footer) {
+        > :not(#short_banner):not(footer) {
             margin: auto;
             margin-left: (100vw - #{$viewWidth}) / 2;
             width: $viewWidth;
@@ -151,7 +151,7 @@ body {
         }
     }
 
-    .short_banner {
+    #short_banner {
         width: 100vw;
         margin-top: 1vh;
         background-color: colors.$color;
@@ -160,10 +160,31 @@ body {
         font-size: 1.5vw;
         padding: 5px;
     }
+    #short_banner:before {
+        content:"Hurry! Before you miss these deals... like two ships passing in the night.";
+    }
 
-    .banner {
+    #banner {
         min-width: $viewWidth;
         overflow: hidden;
+        #banner-scroller{
+            width:400%;
+            display:flex;
+            // height:18vw;
+            overflow:hidden;
+            animation: banner-scroll 30s linear infinite;
+            .banner-item{
+                width:100%;
+                a{
+                    img{
+                        width:100%;
+                    }
+                }
+            }
+            .banner-ghost{
+                width:100%;
+            }
+        }
     }
 
     main {
@@ -242,7 +263,7 @@ body {
     $mobileHeight: 8vh;
 
     body {
-        > :not(.short_banner):not(footer) {
+        > :not(#short_banner):not(footer) {
             margin: 0;
             margin-left: 0;
             width: 100vw;
@@ -250,6 +271,7 @@ body {
             overflow: hidden;
         }
     }
+
 
     .deal-content{
         background-color: white;
@@ -364,7 +386,7 @@ body {
         }
     }
 
-    .short_banner {
+    #short_banner {
         width: 100vw;
         height: 25px;
         display: flex;
@@ -376,6 +398,28 @@ body {
         text-align: center;
         font-size: .4em;
         padding: 5px;
+    }
+    #banner {
+        width: 100vw;
+        height:18vw;
+        overflow: hidden;
+        #banner-scroller{
+            width:400%;
+            display:flex;
+            overflow:hidden;
+            animation: banner-scroll 30s linear infinite;
+            .banner-item{
+                width:100%;
+                a{
+                    img{
+                        width:100%;
+                    }
+                }
+            }
+            .banner-ghost{
+                width:100%;
+            }
+        }
     }
 
     main {
@@ -583,5 +627,41 @@ body {
         max-height: 0;
         visibility: hidden !important;
 
+    }
+}
+
+@keyframes banner-scroll {
+    0% {
+        margin-left:0%;
+    }
+    34% {
+        margin-left:0%;
+    }
+    35% {
+        margin-left:-100%;
+    }
+    65% {
+        margin-left:-100%;
+    }
+    66% {
+        margin-left:-200%;
+    }
+    99% {
+        margin-left:-200%;
+    }
+    100%{
+        margin-left:-300%;
+    }
+}
+
+@keyframes textChange {
+    0%{
+        content:"working";
+    }
+    50%{
+        content:"Hurry! Before you miss these deals... like two ships passing in the night.";
+    }
+    100%{
+        content:"still";
     }
 }

@@ -8,10 +8,10 @@
     animation: waves 5s linear infinite;
 }
 #night_scene_lship{
-    animation: sailRight 20s linear infinite;
+    animation: sailRight 10s linear infinite;
 }
 #night_scene_rship{
-    animation: sailLeft 20s linear infinite;
+    animation: sailLeft 10s linear infinite;
 }
 
 
@@ -94,42 +94,41 @@
     }
 }
 
-// @media only screen and (max-width: 575px) {
-//     @keyframes sailRight {
-//         0% {
-//             transform: translate(-140vw,0);
-//         }
-//         25% {
-//             transform: translate(-70vw,8px);
-//         }
-//         50% {
-//             transform: translate(0vw,0);
-//         }
-//         75% {
-//             transform: translate(70vw,8px);
-//         }
-//         100% {
-//             transform: translate(140vw,0);
-//         }
-//     }
-//     @keyframes sailLeft {
-//         0% {
-//             transform: translate(140vw,0);
-//         }
-//         25% {
-//             transform: translate(70vw,8px);
-//         }
-//         50% {
-//             transform: translate(0vw,0);
-//         }
-//         75% {
-//             transform: translate(-70vw,8px);
-//         }
-//         100% {
-//             transform: translate(-140vw,0);
-//         }
-//     }
-// }
+@media only screen and (min-width: 1000px) {
+    @keyframes sailRight {
+        0% {
+            transform: translate(-10vw,0);
+        }
+        25% {
+            transform: translate(-5vw,8px);
+        }
+        50% {
+            transform: translate(0vw,0);
+        }
+        75% {
+            transform: translate(5vw,8px);
+        }
+        100% {
+            transform: translate(10vw,0);
+        }
+    }
+    @keyframes sailLeft {
+        0% {
+            transform: translate(10vw,0);
+        }
+        25% {
+            transform: translate(5vw,8px);
+        }
+        50% {
+            transform: translate(0vw,0);
+        }
+        75% {
+            transform: translate(-5vw,8px);
+        }
+        100% {
+            transform: translate(-10vw,0);
+        }
+    }}
 // @media only screen and (min-width: 2000px) {
 //     @keyframes sailRight {
 //         0% {

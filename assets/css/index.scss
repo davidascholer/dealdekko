@@ -23,20 +23,6 @@
         width: 100vw;
         overflow: hidden;
     }
-
-    main {
-        margin: 0;
-        overflow: hidden;
-        h1 {
-            width: 100vw;
-            overflow: hidden;
-        }
-    }
-
-    #overlay {
-        width: 100vw;
-        overflow: hidden;
-    }
     .deals-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));

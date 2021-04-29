@@ -14,14 +14,18 @@ const grabDbData = async () => {
     try {
         let dbConnection = await dbConnect.connect();
         console.log('Created connection in model');
-        let data = await dbConnect.query(queryString);
-        console.log(data.length);
-        data = filterData(data);
-        dbConnect.disconnect(dbConnection);
-        return data;
+        try {
+            let data = await dbConnect.query(queryString);
+            console.log(data.length);
+            data = filterData(data);
+            dbConnect.disconnect(dbConnection);
+            return data;
+        } catch {
+            dbConnect.disconnect(dbConnection);
+            grabDbData();
+        }
     } catch (err) {
         console.log('Error creating connection in model. Err: ' + err);
-        // dbConnect.disconnect();
         grabDbData();
     }
 };

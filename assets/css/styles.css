@@ -42,7 +42,7 @@ body a {
     DESKTOP STYLES
 */
 @media only screen and (min-width: 601px) {
-  body > :not(.short_banner):not(footer) {
+  body > :not(#short_banner):not(footer) {
     margin: auto;
     margin-left: 100vw-90vw/2;
     width: 90vw;
@@ -157,7 +157,7 @@ body a {
   }
 }
 @media only screen and (min-width: 601px) {
-  .short_banner {
+  #short_banner {
     width: 100vw;
     margin-top: 1vh;
     background-color: #00a89a;
@@ -168,9 +168,29 @@ body a {
   }
 }
 @media only screen and (min-width: 601px) {
-  .banner {
+  #short_banner:before {
+    content: "Hurry! Before you miss these deals... like two ships passing in the night.";
+  }
+}
+@media only screen and (min-width: 601px) {
+  #banner {
     min-width: 90vw;
     overflow: hidden;
+  }
+  #banner #banner-scroller {
+    width: 400%;
+    display: flex;
+    overflow: hidden;
+    animation: banner-scroll 30s linear infinite;
+  }
+  #banner #banner-scroller .banner-item {
+    width: 100%;
+  }
+  #banner #banner-scroller .banner-item a img {
+    width: 100%;
+  }
+  #banner #banner-scroller .banner-ghost {
+    width: 100%;
   }
 }
 @media only screen and (min-width: 601px) {
@@ -241,7 +261,7 @@ body a {
     MOBILE STYLES
 */
 @media only screen and (max-width: 600px) {
-  body > :not(.short_banner):not(footer) {
+  body > :not(#short_banner):not(footer) {
     margin: 0;
     margin-left: 0;
     width: 100vw;
@@ -352,7 +372,7 @@ body a {
     display: none;
   }
 
-  .short_banner {
+  #short_banner {
     width: 100vw;
     height: 25px;
     display: flex;
@@ -364,6 +384,27 @@ body a {
     text-align: center;
     font-size: 0.4em;
     padding: 5px;
+  }
+
+  #banner {
+    width: 100vw;
+    height: 18vw;
+    overflow: hidden;
+  }
+  #banner #banner-scroller {
+    width: 400%;
+    display: flex;
+    overflow: hidden;
+    animation: banner-scroll 30s linear infinite;
+  }
+  #banner #banner-scroller .banner-item {
+    width: 100%;
+  }
+  #banner #banner-scroller .banner-item a img {
+    width: 100%;
+  }
+  #banner #banner-scroller .banner-ghost {
+    width: 100%;
   }
 
   main {
@@ -563,6 +604,40 @@ body a {
   100% {
     max-height: 0;
     visibility: hidden !important;
+  }
+}
+@keyframes banner-scroll {
+  0% {
+    margin-left: 0%;
+  }
+  34% {
+    margin-left: 0%;
+  }
+  35% {
+    margin-left: -100%;
+  }
+  65% {
+    margin-left: -100%;
+  }
+  66% {
+    margin-left: -200%;
+  }
+  99% {
+    margin-left: -200%;
+  }
+  100% {
+    margin-left: -300%;
+  }
+}
+@keyframes textChange {
+  0% {
+    content: "working";
+  }
+  50% {
+    content: "Hurry! Before you miss these deals... like two ships passing in the night.";
+  }
+  100% {
+    content: "still";
   }
 }
 
