@@ -32,7 +32,7 @@ body {
     $minWidth: 576px;
 
     body {
-        > :not(#short_banner):not(footer) {
+        > :not(#short_banner):not(footer):not(#overlay) {
             margin: auto;
             margin-left: (100vw - #{$viewWidth}) / 2;
             width: $viewWidth;
