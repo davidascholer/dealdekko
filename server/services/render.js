@@ -24,4 +24,5 @@ exports.about = (req, res) => {res.render('about');};
 exports.cookie = (req, res) => {res.render('cookie-policy');};
 exports.privacy = (req, res) => {res.render('privacy-info');};
 exports.contact = (req, res) => {res.render('contact');};
+exports.error = (req, res) => {res.render('error');};
 

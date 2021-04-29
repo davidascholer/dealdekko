@@ -18,25 +18,11 @@ route.get('/about',render_services.about);
 route.get('/cookie-policy',render_services.cookie);
 route.get('/privacy-info',render_services.privacy);
 route.get('/contact',render_services.contact);
+
+//The 404 Route 
+route.get('*', render_services.error);
+
 //post requests
 route.put('/api/:name/:id',api_services.put);
-// /**
-//  * @description add users
-//  * @method GET /add-user
-//  */
-// route.get('/add-user',services.add_user);
-// /**
-//  * @description update user
-//  * @method GET /update-user
-//  */
-// route.get('/update-user',services.update_user);
-
-// //API
-// route.post('/api/users',controller.create);
-// route.get('/api/users',controller.find);
-// //Currently not working locally
-// route.put('/api/users/:id',controller.update);
-// //Currently not working locally
-// route.delete('/api/users/:id',controller.delete);
 
 module.exports = route;

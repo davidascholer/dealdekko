@@ -1,0 +1,53 @@
+<!--include head-->
+<%-include('include/_head')%>
+    <style>
+        body {
+            background-color: #00a89a;
+        }
+        
+        header {
+            background-color: #a62091;
+        }
+
+        main{
+            min-height:85vh;
+        }
+        p {
+            margin: 100px;
+            text-align: center;
+            color:#a62091;
+            font-size:2em;
+            font-weight:bold;
+        }
+
+        img {
+            display: block;
+            width: 25vw;
+            max-width:300px;
+            margin: auto;
+        }
+
+        footer{
+            background-color:#a62091;
+        }
+
+    </style>
+    </head>
+    <!--/include head-->
+
+    <body>
+        <!--include header-->
+        <%-include('include/_header')%>
+            <!--/include header-->
+            <main>
+                <p>
+                    Uh oh. Seems you've reached a dead link. No deals for you.
+                </p>
+                <img src="img/sucs/death_succ.svg" />
+            </main>
+            <!--include footer-->
+            <%-include('include/_footer')%>
+                <!--/include footer-->
+    </body>
+
+    </html>
