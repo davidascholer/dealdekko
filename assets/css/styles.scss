@@ -160,9 +160,6 @@ body {
         font-size: 1.5vw;
         padding: 5px;
     }
-    #short_banner:before {
-        content:"Hurry! Before you miss these deals... like two ships passing in the night.";
-    }
 
     #banner {
         min-width: $viewWidth;
@@ -398,9 +395,6 @@ body {
         text-align: center;
         font-size: .4em;
         padding: 5px;
-    }
-    #short_banner:before {
-        content:"Hurry! Before you miss these deals... like two ships passing in the night.";
     }
     #banner {
         width: 100vw;
@@ -654,17 +648,5 @@ body {
     }
     100%{
         margin-left:-300%;
-    }
-}
-
-@keyframes textChange {
-    0%{
-        content:"working";
-    }
-    50%{
-        content:"Hurry! Before you miss these deals... like two ships passing in the night.";
-    }
-    100%{
-        content:"still";
     }
 }

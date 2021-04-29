@@ -168,11 +168,6 @@ body a {
   }
 }
 @media only screen and (min-width: 601px) {
-  #short_banner:before {
-    content: "Hurry! Before you miss these deals... like two ships passing in the night.";
-  }
-}
-@media only screen and (min-width: 601px) {
   #banner {
     min-width: 90vw;
     overflow: hidden;
@@ -627,17 +622,6 @@ body a {
   }
   100% {
     margin-left: -300%;
-  }
-}
-@keyframes textChange {
-  0% {
-    content: "working";
-  }
-  50% {
-    content: "Hurry! Before you miss these deals... like two ships passing in the night.";
-  }
-  100% {
-    content: "still";
   }
 }
 
