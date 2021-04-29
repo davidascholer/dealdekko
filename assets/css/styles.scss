@@ -399,6 +399,9 @@ body {
         font-size: .4em;
         padding: 5px;
     }
+    #short_banner:before {
+        content:"Hurry! Before you miss these deals... like two ships passing in the night.";
+    }
     #banner {
         width: 100vw;
         height:18vw;
