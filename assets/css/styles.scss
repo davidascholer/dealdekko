@@ -13,7 +13,7 @@ body {
     box-sizing: border-box;
     font-family: kiwi, Helvetica, serif;
     margin: 0;
-
+    overflow-x:hidden;
     * {
         box-sizing: inherit;
     }
@@ -28,22 +28,36 @@ body {
     DESKTOP STYLES
 */
 @media only screen and (min-width: 601px) {
-    $viewWidth: 90vw;
-    $minWidth: 576px;
+    $minWidth: 601px;
+
 
     body {
         > :not(#short_banner):not(footer):not(#overlay) {
+            width:90vw;
             margin: auto;
-            margin-left: (100vw - #{$viewWidth}) / 2;
-            width: $viewWidth;
         }
     }
 
-    .deadDeal {
-        background-color: colors.$ssTwo;
- 
+    // OVERLAY
+    #overlay {
+        position: fixed;
+        width:100vw;
+        height:100vh;
+        padding:10vw;
+        background-color: rgba(0, 0, 0, 0.95);
+        display: none;
+        z-index: 1;
+
+        #overlay-content{
+            padding:5vw;
+            background:white;
+            border-radius: 10px;
+            
+        }
+
     }
 
+    // HEADER
     header {
         min-width: $minWidth;
         margin-top: 1vh;
@@ -124,7 +138,7 @@ body {
             }
         }
         .categories {
-            width: $viewWidth;
+            width: 100%;
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-start;
@@ -151,6 +165,7 @@ body {
         }
     }
 
+    // BANNERS
     #short_banner {
         width: 100vw;
         margin-top: 1vh;
@@ -162,7 +177,7 @@ body {
     }
 
     #banner {
-        min-width: $viewWidth;
+        min-width: 100%;
         overflow: hidden;
         #banner-scroller{
             width:400%;
@@ -184,15 +199,22 @@ body {
         }
     }
 
+    // MAIN CONTENT
     main {
         font-size: 0.8em;
         min-width: $minWidth;
         min-height: 85vh;
+        overflow:hidden;
+
+        .deadDeal{
+
+        }
     }
 
+    // FOOTER
     footer {
         background-color: colors.$color;
-        width: 100vw;
+        width: 100%;
         min-width: $minWidth;
         margin-top: 20px;
 
@@ -253,263 +275,6 @@ body {
     }
 }
 
-/**
-    MOBILE STYLES
-*/
-@media only screen and (max-width: 600px) {
-    $mobileHeight: 8vh;
-
-    body {
-        > :not(#short_banner):not(footer) {
-            margin: 0;
-            margin-left: 0;
-            width: 100vw;
-            max-width: 100vw;
-            overflow: hidden;
-        }
-    }
-
-
-    .deal-content{
-        background-color: white;
-    }
-    .deadDeal {
-        background-color: colors.$ssTwo;
-        .dead-container {
-            flex-grow: 1;
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 0.5rem;
-
-            img {
-                width: 20px !important;
-                margin-right:1vw;
-            }
-            label {
-                font-size: 0.5rem;
-            }
-        }
-        .vendor {
-            display: none;
-        }
-
-    }
-
-
-    #overlay{
-        .deal-content{
-            background-color: white;
-            border-radius: 10px;
-        }
-        .deadDeal {
-            background-color: colors.$ssTwo;
-            border-radius: 10px;
-        }
-    }
-
-    header {
-        margin: 0;
-        overflow: hidden;
-
-        .header-top {
-            display: block;
-            > * {
-                margin: 0;
-            }
-            .header-top-left {
-                font-family: indieflower, Helvetica, serif;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                h1 {
-                    margin: 0;
-                }
-                img {
-                    width: 1.75em;
-                }
-            }
-            .header-top-middle {
-                margin: 0 5px;
-                overflow: visible;
-
-                #searchbox {
-                    width: 96vw;
-                }
-            }
-            .header-top-right {
-                display: none;
-            }
-        }
-
-        hr {
-            display: none;
-        }
-
-        .show-cat-mobile {
-            height: $mobileHeight;
-            display: flex;
-            align-items: center;
-            font-size: 1.5em;
-            img {
-                width: $mobileHeight * 0.6;
-                margin: 0;
-                padding: 2px;
-            }
-        }
-        .categories {
-            height:initial;
-            max-height: 0;
-            align-items: left;
-            overflow: hidden;
-            font-family: amatic, Helvetica, serif;
-            white-space: nowrap;
-
-            * {
-                width:100%;
-                height: $mobileHeight * 0.7;
-                display: block;
-                text-align: left;
-                color: black;
-                font-size: 1.5em;
-                margin: 0 30px;
-                flex-shrink: 0;
-            }
-            #allDealsOption{
-                display:none;
-            }
-        }
-    }
-
-    #short_banner {
-        width: 100vw;
-        height: 25px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 1vh;
-        background-color: colors.$color;
-        color: white;
-        text-align: center;
-        font-size: .4em;
-        padding: 5px;
-    }
-    #banner {
-        width: 100vw;
-        height:18vw;
-        overflow: hidden;
-        #banner-scroller{
-            width:400%;
-            display:flex;
-            overflow:hidden;
-            animation: banner-scroll 30s linear infinite;
-            .banner-item{
-                width:100%;
-                a{
-                    img{
-                        width:100%;
-                    }
-                }
-            }
-            .banner-ghost{
-                width:100%;
-            }
-        }
-    }
-
-    main {
-        font-size: 0.9em;
-        min-height: 8;
-        overflow: hidden;
-    }
-
-    footer {
-        display: block;
-        align-items: center;
-        background-color: colors.$color;
-        width: 100vw;
-        margin-top: 20px;
-
-        #footer-container-top {
-            display: block;
-            padding: 0;
-            text-align: center;
-
-            a {
-                font-size: 0.5em;
-                margin: 3vw;
-            }
-
-            #mobile-selection {
-                display: flex;
-                cursor: default;
-                font-size: 0.7em;
-                justify-content: space-evenly;
-                align-items: center;
-                h2 {
-                    margin: 2vw;
-                }
-            }
-            section {
-                max-height: 0;
-                display: flex;
-                visibility: hidden;
-                justify-content: space-evenly;
-
-                section > * {
-                    display: block;
-                }
-                h2 {
-                    font-size: 1em;
-                    display: none;
-                }
-                a {
-                    font-size: 0.5em;
-                }
-                .follow-images {
-                    display: flex;
-                    align-items: center;
-                    margin: 5px;
-                    justify-content: center;
-                    img {
-                        width: 10px;
-                        margin-right: 5px;
-                    }
-                }
-            }
-            section .footer-filler {
-                display: none;
-            }
-        }
-        #footer-container-bottom {
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
-            padding: 10px;
-
-            .logo-container {
-                display: flex;
-                align-items: center;
-                font-family: indieflower, Helvetica, serif;
-                margin: auto;
-                font-size: 0.75em;
-                h1 {
-                    margin: 0;
-                }
-                img {
-                    width: 20px;
-                }
-            }
-            h3 {
-                font-size: 0.6em;
-                align-self: flex-end;
-                margin: auto;
-            }
-        }
-    }
-}
 
 /**
     ANIMATIONS

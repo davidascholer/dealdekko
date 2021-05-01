@@ -4,28 +4,8 @@
     DESKTOP STYLES
 */
 @media only screen and (min-width: 601px) {
-    main {
-        margin: 0;
-        overflow: hidden;
-        h1 {
-            width: 100vw;
-            overflow: hidden;
-        }
-    }
 
-    #overlay {
-        overflow: hidden;
-        width:100%;
-        height:100%;
-        .deal-content {
-            background-color: white;
-            border-radius: 10px;
-        }
-        .deadDeal {
-            background-color: colors.$ssTwo;
-            border-radius: 10px;
-        }
-    }
+
     .deals-container {
         display: inline-block;
         width: 90vw;
@@ -39,9 +19,12 @@
         .deal-content {
             min-width: 320px;
             padding: 0 10px;
-            height: 25vw;
-            max-height: 220px;
-            overflow: visible;
+            padding:10px 0;
+            overflow: hidden;
+
+            > * {
+                padding:0 5px;
+            }
 
             .content-image {
                 width: 25vw;
@@ -54,10 +37,8 @@
 
             .title-content {
                 padding: 10px;
-                overflow: scroll;
 
                 .title-text {
-                    overflow: scroll;
                     font-size: 1rem;
                 }
             }
@@ -74,7 +55,6 @@
                     flex-grow: 1;
                     display: flex;
                     justify-content: center;
-                    overflow-x: scroll;
 
                     .money-one {
                         font-size: 1.25rem;
@@ -116,6 +96,7 @@
                     display:flex;
                     justify-items:center;
                     align-items:center;
+                    overflow:hidden;
                 }
             }
             .link {
@@ -132,8 +113,9 @@
             margin-left: 2.5vw;
         }
         .deadDeal {
+            background-color: colors.$ssTwo;
             img {
-                background-color: colors.$ssTwo;
+                
             }
             .dead-container {
                 flex-grow: 1;
@@ -160,22 +142,10 @@
     }
     // OVERLAY
     #overlay {
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.95);
-        display: none;
-        z-index: 1;
-        padding: 60px 20px;
+ 
 
         #overlay-content {
-            width: 100%;
-            height: 100%;
-            padding:5vw;
-            overflow: scroll;
-            cursor: default;
+           
 
             .overlay-row {
                 display: block;

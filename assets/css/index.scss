@@ -10,19 +10,8 @@
     DESKTOP STYLES
 */
 @media only screen and (min-width: 601px) {
-    main {
-        margin: 0;
-        overflow: hidden;
-        h1 {
-            width: 100vw;
-            overflow: hidden;
-        }
-    }
 
-    #overlay {
-        width: 100vw;
-        overflow: hidden;
-    }
+
     .deals-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -34,6 +23,7 @@
         text-align: center;
         min-height: 75vh;
         cursor: pointer;
+        overflow:hidden;
     }
 
     .deal-content {
@@ -112,24 +102,10 @@
 
     // SHOW OVERLAY
     #overlay {
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        padding: 5vh 20vw;
-        background-color: rgba(0, 0, 0, 0.95);
-        display: none;
-        z-index: 1;
+
 
         #overlay-content {
-            background-color: white;
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            padding: 20px;
-            overflow: scroll;
-            cursor: default;
+            
 
             .deal-content {
                 width: 100%;

@@ -2,29 +2,6 @@
     DESKTOP STYLES
 */
 @media only screen and (min-width: 601px) {
-  main {
-    margin: 0;
-    overflow: hidden;
-  }
-  main h1 {
-    width: 100vw;
-    overflow: hidden;
-  }
-
-  #overlay {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-  }
-  #overlay .deal-content {
-    background-color: white;
-    border-radius: 10px;
-  }
-  #overlay .deadDeal {
-    background-color: #d3e7dd;
-    border-radius: 10px;
-  }
-
   .deals-container {
     display: inline-block;
     width: 90vw;
@@ -38,9 +15,11 @@
   .deals-container .deal-content {
     min-width: 320px;
     padding: 0 10px;
-    height: 25vw;
-    max-height: 220px;
-    overflow: visible;
+    padding: 10px 0;
+    overflow: hidden;
+  }
+  .deals-container .deal-content > * {
+    padding: 0 5px;
   }
   .deals-container .deal-content .content-image {
     width: 25vw;
@@ -52,10 +31,8 @@
   }
   .deals-container .deal-content .title-content {
     padding: 10px;
-    overflow: scroll;
   }
   .deals-container .deal-content .title-content .title-text {
-    overflow: scroll;
     font-size: 1rem;
   }
   .deals-container .deal-content .price-likes-dead-container {
@@ -70,7 +47,6 @@
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    overflow-x: scroll;
   }
   .deals-container .deal-content .price-likes-dead-container .price-container .money-one {
     font-size: 1.25rem;
@@ -109,6 +85,7 @@
     display: flex;
     justify-items: center;
     align-items: center;
+    overflow: hidden;
   }
   .deals-container .deal-content .link {
     display: none;
@@ -122,7 +99,7 @@
     margin: 0;
     margin-left: 2.5vw;
   }
-  .deals-container .deadDeal img {
+  .deals-container .deadDeal {
     background-color: #d3e7dd;
   }
   .deals-container .deadDeal .dead-container {
@@ -146,24 +123,6 @@
     display: none !important;
   }
 
-  #overlay {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.95);
-    display: none;
-    z-index: 1;
-    padding: 60px 20px;
-  }
-  #overlay #overlay-content {
-    width: 100%;
-    height: 100%;
-    padding: 5vw;
-    overflow: scroll;
-    cursor: default;
-  }
   #overlay #overlay-content .overlay-row {
     display: block;
     height: 100%;
