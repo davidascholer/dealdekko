@@ -24,8 +24,8 @@
   .deals-container .deal-content .content-image {
     width: 25vw;
     height: 25vw;
-    max-width: 220px;
-    max-height: 220px;
+    max-width: 180px;
+    max-height: 180px;
     padding: 10px;
     float: left;
   }
