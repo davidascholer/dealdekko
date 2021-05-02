@@ -56,6 +56,7 @@ body a {
     background-color: rgba(0, 0, 0, 0.95);
     display: none;
     z-index: 1;
+    overflow: scroll;
   }
   #overlay #overlay-content {
     padding: 5vw;

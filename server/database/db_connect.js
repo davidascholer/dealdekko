@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 
-const dbConfig = require('./../services/config').getDBConfig();
+const dbConfig = require('./config').getDBConfig();
 
 //Create a reuseable connection.
 let connection;
@@ -21,6 +21,9 @@ connect = () => {
 
             //Server may be down. 
             connection.connect(err => {
+                // setInterval(function(){
+                //     console.log(connection.state)
+                // },1000);
                 resolve(connection);
                 connectionID = makeid(5);
                 console.log(`Connection with ID:${connectionID} and count:${++connectionCount} created.`);
@@ -68,8 +71,6 @@ disconnect = dbConnection => {
         dbConnection.end();
         console.log(`Connection with ID:${connectionID} and connection count:${--connectionCount} ended.`);
         connectionID = '';
-    }else{
-        console.log(dbConnection.state);
     }
 };
 
