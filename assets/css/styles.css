@@ -179,9 +179,15 @@ body a {
     padding: 5px;
   }
 }
+@media only screen and (min-width: 601px) and (min-width: 1000px) {
+  #short_banner {
+    font-size: 1.5em;
+  }
+}
 @media only screen and (min-width: 601px) {
   #banner {
-    min-width: 100%;
+    width: 80%;
+    max-width: 2000px;
     overflow: hidden;
   }
   #banner #banner-scroller {
@@ -194,9 +200,6 @@ body a {
     width: 100%;
   }
   #banner #banner-scroller .banner-item a img {
-    width: 100%;
-  }
-  #banner #banner-scroller .banner-ghost {
     width: 100%;
   }
 }
