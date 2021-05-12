@@ -6,7 +6,7 @@
         <div class='grid-row'>
             <div class="title-content">
                 <p class="title-text">
-                    <%= dealData[deal].title.replace('&amp;','&') %>
+                    <%= dealData[deal].title.replace(/&amp;/g,'&') %>
                 </p>
             </div>
         </div>
