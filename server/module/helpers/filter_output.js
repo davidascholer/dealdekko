@@ -17,14 +17,14 @@ const filterData = data => {
                 delete data[d];
                 continue;
             }
-            else if (data[d].flag == 1) {
-                delete data[d];
-                continue;
-            }
-            else if (data[d].affiliate_url == null || data[d].affiliate_url == undefined || !data[d].affiliate_url.includes(data[d].vendor)) {
-                delete data[d];
-                continue;
-            }
+            // else if (data[d].flag == 1) {
+            //     delete data[d];
+            //     continue;
+            // }
+            // else if (data[d].affiliate_url == null || data[d].affiliate_url == undefined || !data[d].affiliate_url.includes(data[d].vendor)) {
+            //     delete data[d];
+            //     continue;
+            // }
             
             if (data[d].vendor === 'amazon.com') {
                 data[d].details = amazon(data[d].details);
