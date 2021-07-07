@@ -5,14 +5,8 @@
     window.addEventListener('resize', function () {
         let tempWidth = (window.innerWidth > 600) ? 1 : 0;
         if (tempWidth !== windowWidth)
-        window.location.href = window.location.href;
+            window.location.href = window.location.href;
     });
-
-    //Sets a random plant every time the user refreshes the page. For fun.
-    const NUMBER_OF_PLANTS = 6;
-    const plantHeaderImage = document.getElementById('header_plant');
-    let randomPlant = Math.floor(Math.ceil(Math.random() * NUMBER_OF_PLANTS));
-    plantHeaderImage.src = '/img/sucs/succ_' + randomPlant + '.svg';
 
     document.querySelector('.searchbox [type="reset"]').addEventListener('click', function () { this.parentNode.querySelector('input').focus(); });
     const searchBox = document.querySelector('.searchbox [type="search"]')
@@ -90,6 +84,41 @@
 
 
 })();
+
+// Set up the scroll arrows for the vendor row
+const handleScroll = function(direction) {
+    const scrollerWidth = parseInt(getComputedStyle(vendorsContainer).maxWidth,10);
+    let oldMargin = parseInt(getComputedStyle(vendorsContainer).marginLeft,10);
+    let newMargin = oldMargin + 400*direction;
+    forwardScroll[0].style.visibility = 'visible';
+    backScroll[0].style.visibility = 'visible';
+    if (newMargin <= -1*scrollerWidth + 400) {
+        newMargin = -1*scrollerWidth + 400;
+        forwardScroll[0].style.visibility = 'hidden';
+    }
+    else if (newMargin >= 0) {
+        newMargin = 0;
+        backScroll[0].style.visibility = 'hidden';
+    }
+    let id = setInterval(frame, 2);
+    function frame() {
+        if (oldMargin == newMargin) {
+          clearInterval(id);
+      } else {
+        oldMargin = oldMargin + 5*direction;
+        vendorsContainer.style.marginLeft = oldMargin + 'px';
+      }
+    }
+}
+const vendorsContainer = document.getElementById('vendors-container');
+const forwardScroll = document.getElementsByClassName('vendor-forward');
+const backScroll = document.getElementsByClassName('vendor-back');
+forwardScroll[0].addEventListener('click', function(){
+    handleScroll(-1);
+})
+backScroll[0].addEventListener('click', function () {
+    handleScroll(1);
+})
 
 function addLikeRoute(event, elemID) {
     event.stopPropagation();

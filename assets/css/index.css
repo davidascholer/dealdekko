@@ -10,10 +10,46 @@
     DESKTOP STYLES
 */
 @media only screen and (min-width: 601px) {
+  #vendorList .vendor-arrow-container {
+    position: absolute;
+    width: 92%;
+    pointer-events: none;
+  }
+  #vendorList .vendor-arrow {
+    width: 60px;
+    margin-top: 100px;
+    pointer-events: visible;
+  }
+  #vendorList .vendor-back {
+    float: left;
+    visibility: hidden;
+  }
+  #vendorList .vendor-forward {
+    float: right;
+  }
+  #vendorList #vendors-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    justify-items: center;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    max-width: 1400px;
+    margin-left: 0px;
+  }
+  #vendorList #vendors-container .vendors-item {
+    width: 1fr;
+    min-width: 180px;
+    margin-right: 20px;
+  }
+  #vendorList #vendors-container img {
+    width: 180px;
+  }
+
   .deals-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    grid-template-rows: 350px;
     grid-column-gap: 20px;
     grid-row-gap: 65px;
     justify-content: space-between;
