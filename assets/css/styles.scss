@@ -1,4 +1,11 @@
 /**
+    VARS
+*/
+    $banner-animation-time: 30s;
+    $banner-message-one:"Your stop for all of the internets daily deals. In one place.";
+    $banner-message-two:"Hurry, flash deals go quick... like two ships passing in the night.";
+    $banner-message-three:"Click the banner for deals that go down when the sun goes down 🌇";
+/**
     UNIVERSAL STYLES
 */
 @use 'fonts';
@@ -176,6 +183,11 @@ body {
         font-size: 1.5vw;
         padding: 5px;
     }
+    #short_banner::after {
+        content:".";
+        animation: banner_text $banner-animation-time linear infinite;
+      }
+    
     @media screen and (min-width: 1000px) {
         #short_banner {
             font-size: 1.5em;
@@ -189,7 +201,7 @@ body {
             width:400%;
             display:flex;
             overflow:hidden;
-            animation: banner-scroll 30s linear infinite;
+            animation: banner-scroll $banner-animation-time linear infinite;
             .banner-item{
                 width:100%;
                 a{
@@ -391,6 +403,41 @@ body {
     }
 }
 
+@keyframes banner_text {
+    0% {
+        content:$banner-message-one;
+        color:white;
+    }
+    33% {
+        content:$banner-message-one;
+        color:white;
+    }
+    34% {
+        color:transparent;
+    }
+    35% {
+        content:$banner-message-two;
+        color:white;
+    }
+    64% {
+        content:$banner-message-two;
+        color:white;
+    }
+    65% {
+        color:transparent;
+    }
+    66% {
+        content:$banner-message-three;
+        color:white;
+    }
+    99% {
+        content:$banner-message-three;
+        color:white;
+    }
+    100% {
+        color:transparent;
+    }
+}
 @keyframes banner-scroll {
     0% {
         margin-left:0%;

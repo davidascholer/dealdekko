@@ -11,6 +11,7 @@ const api_services = require('../services/api');
  */
 //main views
 route.get('/',render_services.homeRoutes);
+route.get('/daily',render_services.daily);
 route.get('/category',render_services.category);
 //side views
 route.get('/search',render_services.search);

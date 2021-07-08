@@ -6,6 +6,12 @@ exports.homeRoutes = (req, res) => {
         res.render('index', { dealData: data });
     })
 };
+exports.daily = (req, res) => {
+    control.grabDbData().then(data => {
+
+        res.render('daily', { dealData: data });
+    })
+};
 
 exports.category = (req, res) => {
     control.parseCategoryData(req.query.cat).then(data => {
