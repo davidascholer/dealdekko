@@ -14,9 +14,10 @@ exports.daily = (req, res) => {
 };
 
 exports.category = (req, res) => {
-    control.parseCategoryData(req.query.cat).then(data => {
-        res.render('categories' , { category: req.query.title,dealData: data[0] });
-    })
+    // control.parseCategoryData(req.query.cat).then(data => {
+    //     res.render('categories' , { category: req.query.title,dealData: data[0] });
+    // })
+    res.redirect('/daily');
 };
 exports.search = (req, res) => {
     control.parseSearchData(req.query.searchString).then(data => {
