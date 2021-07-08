@@ -185,7 +185,7 @@ body a {
 }
 @media only screen and (min-width: 601px) {
   #short_banner::after {
-    content: ".";
+    content: "Your stop for all of the internets daily deals. In one place.";
     animation: banner_text 30s linear infinite;
   }
 }

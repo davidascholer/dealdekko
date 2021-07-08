@@ -184,7 +184,7 @@ body {
         padding: 5px;
     }
     #short_banner::after {
-        content:".";
+        content:$banner-message-one;
         animation: banner_text $banner-animation-time linear infinite;
       }
     
