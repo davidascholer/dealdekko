@@ -1,4 +1,11 @@
 @use 'colors' as colors;
+
+/**
+    VARS
+*/
+$banner-animation-time: 30s;
+$banner-message-one:"Your stop for all of the internets daily deals. In one place.";
+
 /**
     MOBILE STYLES
 */
@@ -255,6 +262,11 @@
         font-size: 0.4em;
         padding: 5px;
     }
+
+    #short_banner::after {
+        content:$banner-message-one;
+        animation: banner_text $banner-animation-time linear infinite;
+      }
     #banner {
         width: 100vw;
         height: 18vw;
@@ -263,7 +275,7 @@
             width: 400%;
             display: flex;
             overflow: hidden;
-            animation: banner-scroll 30s linear infinite;
+            animation: banner-scroll $banner-animation-time linear infinite;
             .banner-item {
                 width: 100%;
                 a {

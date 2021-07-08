@@ -1,4 +1,7 @@
 /**
+    VARS
+*/
+/**
     MOBILE STYLES
 */
 @media only screen and (max-width: 600px) {
@@ -229,6 +232,11 @@
     text-align: center;
     font-size: 0.4em;
     padding: 5px;
+  }
+
+  #short_banner::after {
+    content: "Your stop for all of the internets daily deals. In one place.";
+    animation: banner_text 30s linear infinite;
   }
 
   #banner {
