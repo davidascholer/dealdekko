@@ -1,5 +1,5 @@
 
-(function () {
+// (function () {
     //Reload the page when screen size changes from mobile to desktop and vice versa.
     let windowWidth = (window.innerWidth > 600) ? 1 : 0;
     window.addEventListener('resize', function () {
@@ -83,7 +83,7 @@
     }
 
 
-})();
+// })();
 
 // Set up the scroll arrows for the vendor row
 const handleScroll = function(direction) {
@@ -162,7 +162,7 @@ function detailsClicked(event) {
     event.stopPropagation();
 }
 
-const searchDeals = obj => {
+function searchDeals(obj) {
     const input = obj.value;
     const searchBox = document.getElementById('searchbox');
     const letterNumber = /^[0-9 a-zA-Z]+$/;
