@@ -43,7 +43,7 @@ const filterData = data => {
 const amazon = returnDetails => {
 
     returnDetails += `<br><br><br>Don't have Amazon Prime? Students can get a free 6-Month <a target="_blank"
-        href='https://www.amazon.com/amazonprime?_encoding=UTF8&ascsubtag=203d87729db911eb990886ac4273965d0INT&planOptimizationId=WLPStudentMonthlyEligiblePlans&tag=vamplitude-20'>Amazon Prime</a > trial with free 2 - day shipping, unlimited video streaming & more.<br><br>Otherwise, there's also a free 1-Month <a href = 'https://www.amazon.com/amazonprime?_encoding=UTF8&tag=vamplitude-20'>Amazon Prime</a> trial available.`;
+        href='https://www.amazon.com/amazonprime?_encoding=UTF8&ascsubtag=203d87729db911eb990886ac4273965d0INT&planOptimizationId=WLPStudentMonthlyEligiblePlans&tag=vamplitude07-20'>Amazon Prime</a > trial with free 2 - day shipping, unlimited video streaming & more.<br><br>Otherwise, there's also a free 1-Month <a href = 'https://www.amazon.com/amazonprime?_encoding=UTF8&tag=vamplitude07-20'>Amazon Prime</a> trial available.`;
 
     return returnDetails;
 }
