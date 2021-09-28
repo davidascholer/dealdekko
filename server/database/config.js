@@ -1,7 +1,5 @@
 //dotenv - so we can share the code w out telling everyone which port we're running on.
-const dotenv = require('dotenv');
-
-dotenv.config({path:'config.env'});
+require('dotenv').config()
 
 exports.getPort = () => process.env.PORT;
 exports.getDBConfig = () => {
