@@ -21,9 +21,7 @@ connect = () => {
 
             //Server may be down. 
             connection.connect(err => {
-                // setInterval(function(){
-                //     console.log(connection.state)
-                // },1000);
+   
                 resolve(connection);
                 connectionID = makeid(5);
                 console.log(`Connection with ID:${connectionID} and count:${++connectionCount} created.`);
@@ -33,8 +31,8 @@ connect = () => {
             // If you're also serving http, display a 503 error.
             connection.on('error', err => {
                 console.log('db error', err);
-                if (err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
-                    // lost from a server restart, dropped connection, etc.
+                if (err.code === 'PROTOCOL_CONNECTION_LOST') { 
+                    // Connection to the MySQL server is usually ost from a server restart, dropped connection, etc.
                     console.error('PROTOCOL_CONNECTION_LOST : lost connection to server');
                 } else {
                     console.log('Error creating connection: Error Code: ' + err.code);
