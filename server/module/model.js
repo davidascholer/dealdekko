@@ -1,29 +1,25 @@
 /**
  * Keeping all of the functions to our database modules here.
  */
-const { connection } = require('mongoose');
 const dbConnect = require('./../database/db_connect');
 const { filterData } = require('./helpers/filter_output');
-
-//  const queryString = 'SELECT vendor, price from deals WHERE vendor="amazon.com" LIMIT 10';
 
 const grabDbData = async () => {
 
     const queryString = 'SELECT * FROM deals WHERE expired <> 1 AND dead < 10 AND deleted <> 1 ORDER BY date DESC LIMIT 200';
 
     try {
-        let dbConnection = await dbConnect.connect();
-        console.log('Created connection in model');
-        try {
-            let data = await dbConnect.query(queryString);
-            console.log(data.length);
-            data = filterData(data);
-            dbConnect.disconnect(dbConnection);
-            return data;
-        } catch {
-            dbConnect.disconnect(dbConnection);
-            grabDbData();
-        }
+        await dbConnect.query(queryString, (err,result) => {
+            if(err){
+                console.log("error querying: "+err);
+                setTimeout(()=>{
+                    grabDbData();
+                },60000);
+            }else{
+                console.log("data: "+result);
+                return filterData(result);
+            }
+        });
     } catch (err) {
         console.log('Error creating connection in model. Err: ' + err);
         grabDbData();
@@ -42,9 +38,7 @@ const parseCategoryData = async cat => {
 
     const queryString = `SELECT * from deals WHERE category LIKE ${catString} ORDER BY date DESC LIMIT 300`;
     try {
-        let dbConnection = await dbConnect.connect();
         let data = await dbConnect.query(queryString);
-        dbConnect.disconnect(dbConnection);
         data = filterData(data);
         return [data];
     } catch {
@@ -64,10 +58,8 @@ const parseSearchData = async searchString => {
 
     const queryString = `SELECT * from deals WHERE details LIKE '${querySearchString}' ORDER BY date DESC LIMIT 50`;
     try {
-        let dbConnection = await dbConnect.connect();
         let data = await dbConnect.query(queryString);
         data = filterData(data);
-        dbConnect.disconnect(dbConnection);
 
         return [data, decodedSearchString];
     } catch {
