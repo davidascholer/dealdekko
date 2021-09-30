@@ -20,7 +20,5 @@ const update = async (name, id) => {
 
     const queryString = `UPDATE deals SET ${columnName} = ${columnName} + 1 WHERE id=${id} ;`;
 
-    await dbConnect.connect();
     await dbConnect.query(queryString);
-    dbConnect.disconnect();
 };

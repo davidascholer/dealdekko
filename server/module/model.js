@@ -7,23 +7,8 @@ const { filterData } = require('./helpers/filter_output');
 const grabDbData = async () => {
 
     const queryString = 'SELECT * FROM deals WHERE expired <> 1 AND dead < 10 AND deleted <> 1 ORDER BY date DESC LIMIT 200';
-
-    try {
-        await dbConnect.query(queryString, (err,result) => {
-            if(err){
-                console.log("error querying: "+err);
-                setTimeout(()=>{
-                    grabDbData();
-                },60000);
-            }else{
-                console.log("data: "+result);
-                return filterData(result);
-            }
-        });
-    } catch (err) {
-        console.log('Error creating connection in model. Err: ' + err);
-        grabDbData();
-    }
+    const results = await dbConnect.query(queryString);
+    return filterData(results);
 };
 
 const parseCategoryData = async cat => {
