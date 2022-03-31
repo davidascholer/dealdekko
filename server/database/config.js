@@ -3,7 +3,6 @@ require('dotenv').config()
 
 exports.getPort = () => process.env.PORT;
 exports.getDBConfig = () => {
-    console.log(process.env.USER);
     return {
         host: process.env.HOST,
         user: 'b1422fa62a71f3',

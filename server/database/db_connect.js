@@ -17,7 +17,7 @@ const query = queryString => {
                 reject('error');
                 // throw new Error("Error in query: "+ error);
             }
-            console.log('results:'+results);
+            // console.log('results:'+results);
             resolve(results);
         });
         

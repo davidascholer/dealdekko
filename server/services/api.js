@@ -3,7 +3,7 @@ const dbConnect = require('./../database/db_connect');
 exports.put = (req, res) => {
 
     update(req.params.name, req.params.id).then(() => {
-        console.log(`Added a ${req.params.name} to id:${req.params.id}`);
+        // console.log(`Added a ${req.params.name} to id:${req.params.id}`);
         res.end();
     });
 };

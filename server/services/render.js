@@ -3,7 +3,7 @@ const control = require('./../controller/controller');
 exports.homeRoutes = (req, res) => {
     control.grabDbData().then(data => {
 
-        console.log('data:'+data);
+        // console.log('data:'+data);
         res.render('index', { dealData: data });
     })
 };
