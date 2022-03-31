@@ -5,7 +5,7 @@ exports.getPort = () => process.env.PORT;
 exports.getDBConfig = () => {
     return {
         host: process.env.HOST,
-        user: 'b1422fa62a71f3',
+        user: process.env.USER,
         password: process.env.PASSWORD,
         database: process.env.DB
     }
