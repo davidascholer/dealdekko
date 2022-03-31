@@ -37,7 +37,7 @@ if (PORT !== 3000) {
 app.use('/', require('./server/routes/router'));
 
 app.listen(PORT, () => {
-    console.log(`Deal_Dekko is running on port ${PORT}`);
+    // console.log(`Deal_Dekko is running on port ${PORT}`);
 });
 
 //sass --watch assets/css &
